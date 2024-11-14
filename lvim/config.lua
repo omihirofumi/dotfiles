@@ -30,6 +30,9 @@ vim.keymap.del("t", "<C-l>")
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
+-- show files included .gitignore in tree
+lvim.builtin.nvimtree.setup.filters.custom = {}
+
 lvim.plugins = {
   { "rebelot/kanagawa.nvim" },
   {
