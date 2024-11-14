@@ -4,7 +4,7 @@
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
 --
-lvim.colorscheme = "kanagawa-dragon"
+lvim.colorscheme = "alduin"
 
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
@@ -22,10 +22,12 @@ function _G.set_terminal_keymaps()
 end
 
 -- unbind default terminal shortcut
-vim.keymap.del("t", "<C-h>")
+-- vim.keymap.del("t", "<C-h>")
 -- vim.keymap.del("t", "<C-j>")
 -- vim.keymap.del("t", "<C-k>")
-vim.keymap.del("t", "<C-l>")
+-- vim.keymap.del("t", "<C-l>")
+lvim.keys.term_mode["<C-h>"] = false
+lvim.keys.term_mode["<C-l>"] = false
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
@@ -35,6 +37,7 @@ lvim.builtin.nvimtree.setup.filters.custom = {}
 
 lvim.plugins = {
   { "rebelot/kanagawa.nvim" },
+  { "bakageddy/alduin.nvim", priority = 1000 , config = true, opts = ...},
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
