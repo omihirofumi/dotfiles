@@ -4,7 +4,7 @@
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
 --
-lvim.colorscheme = "alduin"
+lvim.colorscheme = "kanagawa"
 
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
@@ -14,6 +14,11 @@ lvim.keys.insert_mode["<C-b>"] = "<Left>"
 lvim.keys.insert_mode["<C-f>"] = "<Right>"
 lvim.keys.insert_mode["<C-e>"] = "<End>"
 lvim.keys.insert_mode["<C-a>"] = "<Home>"
+
+--which-key
+lvim.builtin.which_key.mappings["i"] = {
+  ":CopilotChatOpen<CR>", "Copilot Chat"
+}
 
 -- terminal settings
 function _G.set_terminal_keymaps()
