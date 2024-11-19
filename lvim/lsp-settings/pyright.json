@@ -1,0 +1,10 @@
+{
+    "python.venvPath": ".",
+    "python.pythonPath": "./.venv/bin/python",
+    "python.analysis.extraPaths": {
+        "."
+    },
+    "python.analysis.exclude": {
+        "./worktree"
+    },
+}
