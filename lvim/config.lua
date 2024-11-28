@@ -49,12 +49,6 @@ lvim.keys.term_mode["<C-l>"] = false
 -- show files included .gitignore in tree
 lvim.builtin.nvimtree.setup.filters.custom = {}
 
-lvim.builtin.which_key.mappings["i"] = {
-    name = "Copilot",
-    c = { ":CodeCompanionChat ", "Chat" },
-    i = { ":CodeCompanion ", "Inline" },
-}
-
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "pyright" })
 require("lspconfig").pyright.setup {
     settings = {
@@ -67,6 +61,8 @@ require("lspconfig").pyright.setup {
         }
     }
 }
+
+lvim.builtin.which_key.mappings["bs"] = { ":Chowcho<CR>", "Select buffer" }
 
 
 lvim.plugins = {
@@ -146,8 +142,8 @@ lvim.plugins = {
         lazy = true,
         event = "CmdlineEnter",
         init = function()
-            -- vim.keymap.set({ "n", "x" }, "sc", ":CodeCompanionChat ")
-            -- vim.keymap.set({ "n", "x" }, "si", ":CodeCompanion ")
+            vim.keymap.set({ "n", "x" }, "sc", ":CodeCompanionChat ")
+            vim.keymap.set({ "n", "x" }, "si", ":CodeCompanion ")
         end,
         config = function()
             require("codecompanion").setup({
@@ -234,5 +230,81 @@ lvim.plugins = {
                 require("treemonkey").select({ ignore_injections = false })
             end)
         end
-    }
+    },
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function() vim.fn["mkdp#util#install"]() end,
+    },
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
+        opts = {},
+        init = function()
+            vim.g.mkdp_auto_close = 0
+        end,
+    },
+    {
+        "ixru/nvim-markdown"
+    },
+    {
+        "tkmpypy/chowcho.nvim",
+        config = function()
+            require("chowcho").setup({
+                -- Must be a single character. The length of the array is the maximum number of windows that can be moved.
+                labels = { "A", "B", "C", "D", "E", "F", "G", "H", "I" },
+                selector = "statusline", -- `float` or `statusline` (default: `float`)
+                use_exclude_default = true,
+                ignore_case = true,
+                exclude = function(buf, win)
+                    -- exclude noice.nvim's cmdline_popup
+                    local bt = vim.api.nvim_get_option_value("buftype", { buf = buf })
+                    local ft = vim.api.nvim_get_option_value("filetype", { buf = buf })
+                    if bt == "nofile" and (ft == "noice" or ft == "vim") then
+                        return true
+                    end
+                    return false
+                end,
+                selector = {
+                    float = {
+                        border_style = "rounded",
+                        icon_enabled = true,
+                        color = {
+                            label = {
+                                active = "#c8cfff",
+                                inactive = "#ababab",
+                            },
+                            text = {
+                                active = "#fefefe",
+                                inactive = "#d0d0d0",
+                            },
+                            border = {
+                                active = "#b400c8",
+                                inactive = "#fefefe",
+                            },
+                        },
+                        zindex = 1,
+                    },
+                    statusline = {
+                        color = {
+                            label = {
+                                active = "#fefefe",
+                                inactive = "#d0d0d0",
+                            },
+                            background = {
+                                active = "#3d7172",
+                                inactive = "#203a3a",
+                            },
+                        },
+                    },
+                },
+            })
+        end,
+    },
+
 }
