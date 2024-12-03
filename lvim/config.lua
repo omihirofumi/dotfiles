@@ -62,8 +62,12 @@ require("lspconfig").pyright.setup {
     }
 }
 
+-- サブディレクトリのファイルを開くとツリーが移動しないようにする
 lvim.builtin.nvimtree.setup.update_focused_file.update_root = false
 lvim.builtin.nvimtree.setup.sync_root_with_cwd = false
+
+-- ターミナルのトグル
+lvim.builtin.terminal.open_mapping = "<C-`>"
 
 
 lvim.builtin.which_key.mappings["bs"] = { ":Chowcho<CR>", "Select buffer" }
@@ -146,8 +150,8 @@ lvim.plugins = {
         lazy = true,
         event = "CmdlineEnter",
         init = function()
-            vim.keymap.set({ "n", "x" }, "sc", ":CodeCompanionChat ")
-            vim.keymap.set({ "n", "x" }, "si", ":CodeCompanion ")
+            vim.keymap.set({ "n", "x" }, "<c-s><c-c>", ":CodeCompanionChat ")
+            vim.keymap.set({ "n", "x" }, "<c-s><c-i>", ":CodeCompanion ")
         end,
         config = function()
             require("codecompanion").setup({
@@ -310,5 +314,19 @@ lvim.plugins = {
             })
         end,
     },
+    {
+        "vinnymeller/swagger-preview.nvim",
+        cmd = { "SwaggerPreview", "SwaggerPreviewStop", "SwaggerPreviewToggle" },
+        build = "npm i",
+        config = function()
+            require("swagger-preview").setup({
+                open_browser = {
+                    enable = true,
+                },
+                port = 8003,
+                host = "localhost"
+            })
+        end,
+    }
 
 }
