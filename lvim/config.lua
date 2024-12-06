@@ -9,6 +9,11 @@ lvim.colorscheme = "gruvbox-material"
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 2
 
+-- clipboard
+vim.opt.clipboard = ""
+vim.keymap.set({ "v", "n" }, "y", '"+y')
+
+
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["[b"] = ":bprev<cr>"
@@ -150,7 +155,7 @@ lvim.plugins = {
         lazy = true,
         event = "CmdlineEnter",
         init = function()
-            vim.keymap.set({ "n", "x" }, "<c-s><c-c>", ":CodeCompanionChat ")
+            vim.keymap.set({ "n", "x" }, "<c-s><c-s>", ":CodeCompanionChat ")
             vim.keymap.set({ "n", "x" }, "<c-s><c-i>", ":CodeCompanion ")
         end,
         config = function()
@@ -327,6 +332,5 @@ lvim.plugins = {
                 host = "localhost"
             })
         end,
-    }
-
+    },
 }
