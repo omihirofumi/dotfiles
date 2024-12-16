@@ -6,8 +6,9 @@
 --
 lvim.colorscheme = "gruvbox-material"
 
-vim.opt.shiftwidth = 4
+vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
+vim.opt.wrap = true
 
 -- clipboard
 vim.opt.clipboard = ""
@@ -31,6 +32,8 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = { "terraform", "tf" },
     command = "setlocal shiftwidth=2 tabstop=2",
 })
+
+-- lvim.builtin.treesitter.setup.
 
 
 -- terminal settings
@@ -333,4 +336,15 @@ lvim.plugins = {
             })
         end,
     },
+    {
+        url = "https://github.com/RRethy/nvim-treesitter-endwise",
+        commit = "ad5ab41122a0b84f27101f1b5e6e55a681f84b2f",
+        config = function()
+            require("nvim-treesitter.configs").setup({
+                endwise = {
+                    enable = true,
+                },
+            })
+        end
+    }
 }
