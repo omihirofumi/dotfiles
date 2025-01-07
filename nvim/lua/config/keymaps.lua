@@ -5,3 +5,5 @@ local set = vim.keymap.set
 local del = vim.keymap.del
 
 set({ "v", "n" }, "y", '"+y')
+
+del("n", "<C-s>")
