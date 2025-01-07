@@ -5,5 +5,9 @@ local set = vim.keymap.set
 local del = vim.keymap.del
 
 set({ "v", "n" }, "y", '"+y')
+set("n", "<leader>bs", ":Chowcho<CR>", { desc = "Select buffers" })
+set("i", "<C-b>", "<Left>")
+set("i", "<C-f>", "<Right>")
+set("i", "<C-e>", "<End>")
 
 del("n", "<C-s>")
