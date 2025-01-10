@@ -22,6 +22,7 @@ alias cp='cp -r'
 alias rm='rm -r'
 alias ll='ls -l'
 alias la='ls -la'
+alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
 
 # command
 alias myip='curl http://checkip.amazonaws.com'

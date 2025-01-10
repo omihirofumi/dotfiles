@@ -5,3 +5,4 @@ vim.opt.clipboard = ""
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.wrap = true
+vim.g.lazyvim_prettier_needs_config = true
