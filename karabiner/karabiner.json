@@ -5,6 +5,7 @@
                 "rules": [
                     {
                         "description": "AquaSKK for Ghostty",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "conditions": [
