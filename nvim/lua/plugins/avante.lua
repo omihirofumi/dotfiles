@@ -52,7 +52,8 @@ return {
           local selected_filepaths = params.selected_filepaths
 
           -- fdコマンドで隠しファイル（--hidden）を含めて検索
-          local cmd = string.format("fd --type f --base-directory '%s' --hidden", vim.fn.fnameescape(cwd))
+          local cmd =
+            string.format("fd --type f --base-directory '%s' --hidden --exclude .git", vim.fn.fnameescape(cwd))
           local output = vim.fn.system(cmd)
           local filepaths = vim.split(output, "\n", { trimempty = true })
 
