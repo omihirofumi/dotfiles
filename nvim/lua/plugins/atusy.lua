@@ -32,4 +32,5 @@ return {
       end)
     end,
   },
+  { "https://github.com/atusy/budoux.lua" },
 }

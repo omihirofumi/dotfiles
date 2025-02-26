@@ -11,3 +11,5 @@ require("lspconfig").pyright.setup({
     },
   },
 })
+
+vim.cmd("colorscheme kanagawa")

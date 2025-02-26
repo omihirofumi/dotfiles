@@ -16,4 +16,10 @@ set("n", "<C-w><C-c>", function()
   Snacks.bufdelete()
 end, { desc = "Delete Buffer" })
 
+set("n", "<leader>xx", "<Cmd>source %<CR>", { desc = "source %" })
+
 del("n", "<C-s>")
+
+vim.api.nvim_create_user_command("RenameIdentifier", function()
+  vim.lsp.buf.rename()
+end, {})

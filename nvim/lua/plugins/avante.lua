@@ -8,11 +8,62 @@ return {
     -- for example
     provider = "copilot",
     copilot = {
-      model = "claude-3.5-sonnet",
+      model = "claude-3.7-sonnet",
     },
     auto_suggetions_provider = "copilot",
     file_selector = {
-      provider = "telescope",
+      provider = function(params)
+        local filepaths = params.filepaths
+        local title = params.title
+        local handler = params.handler
+
+        local pickers = require("telescope.pickers")
+        local finders = require("telescope.finders")
+        local conf = require("telescope.config").values
+        local actions = require("telescope.actions")
+        local action_state = require("telescope.actions.state")
+
+        pickers
+          .new({}, {
+            prompt_title = title,
+            finder = finders.new_table({
+              results = filepaths,
+            }),
+            sorter = conf.generic_sorter({}),
+            attach_mappings = function(prompt_bufnr, map)
+              actions.select_default:replace(function()
+                local selection = action_state.get_selected_entry()
+                actions.close(prompt_bufnr)
+                if selection then
+                  handler({ selection[1] })
+                else
+                  handler(nil)
+                end
+              end)
+              return true
+            end,
+          })
+          :find()
+      end,
+
+      provider_opts = {
+        get_filepaths = function(params)
+          local cwd = params.cwd
+          local selected_filepaths = params.selected_filepaths
+
+          -- fdコマンドで隠しファイル（--hidden）を含めて検索
+          local cmd = string.format("fd --type f --base-directory '%s' --hidden", vim.fn.fnameescape(cwd))
+          local output = vim.fn.system(cmd)
+          local filepaths = vim.split(output, "\n", { trimempty = true })
+
+          return vim
+            .iter(filepaths)
+            :filter(function(filepath)
+              return not vim.tbl_contains(selected_filepaths, filepath)
+            end)
+            :totable()
+        end,
+      },
     },
     behaviour = {
       auto_set_highlight_group = true,
@@ -38,7 +89,7 @@ return {
         start_insert = true,
       },
       ask = {
-        -- floating = true,
+        floating = true,
         start_insert = true,
         border = "single",
       },

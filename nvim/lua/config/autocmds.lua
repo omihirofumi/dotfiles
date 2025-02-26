@@ -12,3 +12,9 @@ vim.api.nvim_create_autocmd("TermEnter", {
     vim.keymap.set("t", "<c-h>", "<c-h>", { buffer = ev.buf, nowait = true })
   end,
 })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown", "txt" },
+  callback = function()
+    vim.opt_local.conceallevel = 0
+  end,
+})
