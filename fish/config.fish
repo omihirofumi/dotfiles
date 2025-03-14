@@ -28,4 +28,6 @@ alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
 alias myip='curl http://checkip.amazonaws.com'
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/hirofumiomi/google-cloud-sdk/path.fish.inc' ]; . '/Users/hirofumiomi/google-cloud-sdk/path.fish.inc'; end
+if [ -f '/Users/hirofumiomi/google-cloud-sdk/path.fish.inc' ]
+    . '/Users/hirofumiomi/google-cloud-sdk/path.fish.inc'
+end
