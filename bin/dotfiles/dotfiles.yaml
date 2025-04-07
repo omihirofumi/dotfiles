@@ -1,0 +1,5 @@
+dotfiles:
+  dir: ~/dotfiles
+  targets:
+    - name: bashrc
+      source: ~/.bashrc
