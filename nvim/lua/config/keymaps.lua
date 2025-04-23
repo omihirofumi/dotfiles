@@ -19,6 +19,8 @@ end, { desc = "Delete Buffer" })
 
 set("n", "<leader>xx", "<Cmd>source %<CR>", { desc = "source %" })
 
+set("n", "<leader>by", ':let @+ = fnamemodify(expand("%"), ":.")<CR>', { desc = "Copy file path" })
+
 del("n", "<C-s>")
 
 vim.api.nvim_create_user_command("RenameIdentifier", function()
