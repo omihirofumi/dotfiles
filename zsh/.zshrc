@@ -45,7 +45,7 @@ export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ############################## functions [START] #############################
 # peco x ghq
 function peco-src () {
-  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+  local selected_dir=$(ghq list -p | fzf --reverse)
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
     zle accept-line
