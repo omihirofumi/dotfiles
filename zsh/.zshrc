@@ -43,8 +43,8 @@ zplug load
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 ############################## functions [START] #############################
-# peco x ghq
-function peco-src () {
+# fzf x ghq
+function fzf-src () {
   local selected_dir=$(ghq list -p | fzf --reverse)
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
@@ -52,6 +52,26 @@ function peco-src () {
   fi
   zle clear-screen
 }
-zle -N peco-src
-bindkey '^]' peco-src
+zle -N fzf-src
+bindkey '^]' fzf-src
+
+
+# fzf x development
+function fzf-dev () {
+  local selected_dir=$(find ~/Development -type d -mindepth 1 -maxdepth 3 \
+    -not -path "*/.*" \
+    -not -path "*/node_modules*" \
+    -not -path "*/target*" \
+    -not -path "*/build*" | \
+    sed "s|$HOME/||" | \
+    fzf --reverse --preview 'ls -la ~/{}'
+  )
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ~/${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N fzf-dev
+bindkey '^f' fzf-dev
 ############################## functions [END] #############################
