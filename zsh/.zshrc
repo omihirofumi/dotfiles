@@ -1,6 +1,7 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(/opt/homebrew/bin/mise activate zsh)"
 eval "$(starship init zsh)"
+eval "$(thefuck --alias)"
 
 ######## PATH #######################
 export ZPLUG_HOME=/opt/homebrew/opt/zplug
