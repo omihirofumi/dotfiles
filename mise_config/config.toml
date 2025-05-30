@@ -1,8 +1,0 @@
-[tools]
-aws-cli = "latest"
-gcloud = "latest"
-go = "latest"
-gradle = "latest"
-java = "latest"
-node = "latest"
-npm = "latest"
