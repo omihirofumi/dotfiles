@@ -11,6 +11,7 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080"
 export HOMEBREW_BREWFILE=~/.Brewfile
 
 ######## bindkey ####################
+# ctrl + M for ghostty
 bindkey '\e[109;5u' accept-line
 
 ############################### zPlug [START] ###################################
