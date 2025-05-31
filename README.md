@@ -25,7 +25,7 @@ chezmoi re-add
 
 githubのユーザネームを設定
 ```bash
-export $GITHUB_USERNAME=omihirofumi
+export GITHUB_USERNAME=omihirofumi
 ```
 
 
