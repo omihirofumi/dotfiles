@@ -19,6 +19,9 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 # Dock設定
 echo "Setting up dock preferences..."
 
+# Dockを隠す
+defaults write NSGlobalDomain autohide -bool true
+
 # Dockがすぐに出てくるように
 defaults write com.apple.Dock autohide-delay -float 0
 
