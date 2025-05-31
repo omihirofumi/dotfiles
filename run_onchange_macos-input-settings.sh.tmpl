@@ -6,14 +6,15 @@ echo "Configuring macOS keyboard and trackpad settings..."
 # キーボード設定
 echo "Setting up keyboard preferences..."
 
-# キーのリピート速度（速い設定）
-defaults write NSGlobalDomain KeyRepeat -int 2
 
 # キー長押しで連写
 defaults write -g ApplePressAndHoldEnabled -bool false
 
+## TODO: この二つは効かない
 # リピート入力認識までの時間（短い設定）
-defaults write NSGlobalDomain InitialKeyRepeat -int 15
+# defaults write NSGlobalDomain InitialKeyRepeat -int 15
+# キーのリピート速度（速い設定）
+# defaults write NSGlobalDomain KeyRepeat -int 2
 
 # Dock設定
 echo "Setting up dock preferences..."
