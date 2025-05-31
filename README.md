@@ -21,17 +21,17 @@ chezmoi re-add
 ```
 
 ### 新しい端末でやること
+
+#### 0. set github username 
+
 ```bash
-# 0. set github username 
 export $GITHUB_USERNAME=omihirofumi
 ```
 
 
 ```bash
-# 1. install chezmoi
 brew install chezmoi
 
-# 2. init & apply
 chezmoi init --apply $GITHUB_USERNAME
 ```
 
