@@ -15,6 +15,7 @@ chezmoi add <config-file>
 ```
 
 #### 管理しているdotfilesを修正したとき
+自動でcommit & pushされる設定をしている
 ```bash
 chezmoi re-add
 ```
