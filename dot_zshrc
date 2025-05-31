@@ -46,7 +46,7 @@ zplug load
 # zsh-autosuggestions設定
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-############################## functions [START] #############################
+############################## functions [START] ##############################
 # fzf x ghq
 function fzf-src () {
   local selected_dir=$(ghq list -p | fzf --reverse)
