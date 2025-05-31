@@ -1,0 +1,37 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+echo "Configuring macOS keyboard and trackpad settings..."
+
+# キーボード設定
+echo "Setting up keyboard preferences..."
+
+# キーのリピート速度（速い設定）
+defaults write NSGlobalDomain KeyRepeat -int 2
+
+# キー長押しで連写
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+# リピート入力認識までの時間（短い設定）
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+
+# Dock設定
+echo "Setting up dock preferences..."
+
+# Dockがすぐに出てくるように
+defaults write com.apple.Dock autohide-delay -float 0
+
+# トラックパッド設定
+echo "Setting up trackpad preferences..."
+
+# トラッキング速度（速い設定）
+defaults write NSGlobalDomain com.apple.trackpad.scaling -float 3.0
+
+# 設定を反映するためにプロセスを再起動
+killall cfprefsd
+killall Dock
+
+echo "Keyboard and trackpad settings configured!"
+echo "Some settings may require a logout/login to take full effect."
+
+{{ end -}}

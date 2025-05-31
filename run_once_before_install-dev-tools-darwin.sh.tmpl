@@ -1,0 +1,30 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+set -e
+
+# chezmoiのソースディレクトリからBrewfileを探す
+SOURCE_DIR="{{ .chezmoi.sourceDir }}"
+BREWFILE_PATHS=(
+    "$SOURCE_DIR/dot_Brewfile"
+)
+
+BREWFILE_FOUND=""
+for path in "${BREWFILE_PATHS[@]}"; do
+    if [ -f "$path" ]; then
+        BREWFILE_FOUND="$path"
+        break
+    fi
+done
+
+if [ -n "$BREWFILE_FOUND" ]; then
+    echo "Installing packages from $BREWFILE_FOUND..."
+    brew bundle --file="$BREWFILE_FOUND"
+else
+    echo "Error: No Brewfile found in any of the expected locations:"
+    printf '%s\n' "${BREWFILE_PATHS[@]}"
+    exit 1
+fi
+
+echo "Development tools installation completed!"
+{{ end -}}

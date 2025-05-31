@@ -3,9 +3,12 @@ eval "$(/opt/homebrew/bin/mise activate zsh)"
 eval "$(starship init zsh)"
 eval "$(thefuck --alias)"
 
+source <(fzf --zsh)
+
 ######## PATH #######################
 export ZPLUG_HOME=/opt/homebrew/opt/zplug
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080"
+export HOMEBREW_BREWFILE=~/.Brewfile
 
 ############################### zPlug [START] ###################################
 source $ZPLUG_HOME/init.zsh
@@ -75,4 +78,4 @@ function fzf-dev () {
 }
 zle -N fzf-dev
 bindkey '^g' fzf-dev
-############################## functions [END] #############################
+############################## functions [END] ###############################
