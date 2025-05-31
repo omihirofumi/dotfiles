@@ -22,13 +22,14 @@ chezmoi re-add
 
 ### 新しい端末でやること
 
-#### 0. set github username 
 
+githubのユーザネームを設定
 ```bash
 export $GITHUB_USERNAME=omihirofumi
 ```
 
 
+ `chezmoi`をインストールして、初期化&apply
 ```bash
 brew install chezmoi
 
