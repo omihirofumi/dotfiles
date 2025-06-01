@@ -14,6 +14,12 @@ export HOMEBREW_BREWFILE=~/.Brewfile
 # ctrl + M for ghostty
 bindkey '\e[109;5u' accept-line
 
+
+######## alias ######################
+alias g=git
+alias cat=bat
+alias ls=lsd
+
 ############################### zPlug [START] ###################################
 source $ZPLUG_HOME/init.zsh
 # Load theme file
