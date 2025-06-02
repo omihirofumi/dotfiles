@@ -1,9 +1,3 @@
-## Requirement
-- [homebrew](https://brew.sh/)
-    ```bash
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    ```
-
 ## 使い方
 [chezmoi](https://github.com/twpayne/chezmoi)を使用して、管理している。
 
@@ -21,19 +15,15 @@ chezmoi re-add
 ```
 
 ### 新しい端末でやること
+インストールスクリプトの実行
 
-
-githubのユーザネームを設定
 ```bash
-export GITHUB_USERNAME=omihirofumi
+sh install.sh
 ```
-
-
- `chezmoi`をインストールして、初期化&apply
+or
 ```bash
-brew install chezmoi
-
-chezmoi init --apply $GITHUB_USERNAME
+chmod +x ./install.sh
+./install.sh
 ```
 
 ### github上のdotfilesと同期
