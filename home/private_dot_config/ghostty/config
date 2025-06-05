@@ -2,7 +2,7 @@ font-family = JetBrainsMono Nerd Font Mono
 font-feature = -dlig
 
 theme = kanagawabones
-background-opacity = 0.8
+background-opacity = 0.95
 macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
 macos-option-as-alt = true

@@ -88,20 +88,4 @@ function fzf-dev () {
 }
 zle -N fzf-dev
 bindkey '^g' fzf-dev
-
-
-# fzf x git-worktree
-function fzf-worktree() {
-  local selected_worktree=$(git worktree list --porcelain 2>/dev/null | \
-    awk '/worktree / {print $2}' | \
-    fzf --reverse --preview 'git -C {} log --oneline -10 2>/dev/null || echo "No git history available"'
-  )
-  if [ -n "$selected_worktree" ]; then
-    BUFFER="cd ${selected_worktree}"
-    zle accept-line
-  fi
-  zle clear-screen
-}
-zle -N fzf-worktree
-bindkey '^j' fzf-worktree
 ############################## functions [END] ###############################

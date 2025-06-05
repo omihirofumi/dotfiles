@@ -3,6 +3,3 @@
 	name = omihirofumi
 [core]
 	excludesfile = ~/.gitignore_global
-[alias]
-  wb = "!f() { WORKTREE_PATH=../$(basename $(pwd))-${1}; git worktree add $WORKTREE_PATH $2; }; f"
-  wd = worktree remove .
