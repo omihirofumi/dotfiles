@@ -31,11 +31,12 @@ echo "Setting up trackpad preferences..."
 # トラッキング速度（速い設定）
 defaults write NSGlobalDomain com.apple.trackpad.scaling -float 7.0
 
+# 隠しファイル表示
+defaults write com.apple.finder AppleShowAllFiles TRUE
+
 # 設定を反映するためにプロセスを再起動
 killall cfprefsd
 killall Dock
-
-echo "Keyboard and trackpad settings configured!"
-echo "Some settings may require a logout/login to take full effect."
+killall Finder
 
 {{ end -}}
