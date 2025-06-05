@@ -14,8 +14,8 @@ symbol = 'AWS > '
 style = 'bold yellow'
 disabled = false
 
-[gcloud]
-format = '[$symbol$account(@$domain)(\($region\))]($style) '
-symbol = '🅶 '
-style = 'bold blue'
-disabled = false
+# [gcloud]
+# format = '[$symbol$account(@$domain)(\($region\))]($style) '
+# symbol = '🅶 '
+# style = 'bold blue'
+# disabled = false
