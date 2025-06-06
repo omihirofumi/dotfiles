@@ -505,7 +505,7 @@ set clipboard=
 vnoremap y "+y
 nnoremap y "+y
 nnoremap Y "+y$
-nnoremap yig :%y<CR>
+nnoremap yig :%y+<CR>
 inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
 " Q isn't exactly the same.
