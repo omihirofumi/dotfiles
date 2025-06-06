@@ -59,9 +59,10 @@ nmap gsd <Plug>DSurround
 " Use s to jump anywhere (similar to flash.nvim in LazyVim)
 set easymotion
 set g:EasyMotion_do_mapping = 0
-nmap s <Plug>(easymotion-s)
-xmap s <Plug>(easymotion-s)
-omap s <Plug>(easymotion-s)
+nmap ; <Plug>(easymotion-s)
+xmap ; <Plug>(easymotion-s)
+omap ; <Plug>(easymotion-s)
+
 
 " Enable the whichkey plugin, available on Jetbrains marketplace
 set which-key
@@ -219,7 +220,7 @@ nmap <leader>- <c-w>s
 " Split Window Right
 nmap <leader><bar> <c-w>v
 " Delete Window
-nmap <leader>wd <Action>(CloseContent)
+nmap <leader>wc <Action>(CloseContent)
 " Toggle Maximize
 nmap <leader>wm <Action>(ToggleDistractionFreeMode)
 
@@ -482,6 +483,7 @@ if is_ide_rider | nmap <leader>tT <Action>(RiderUnitTestRunSolutionAction) | end
 " Toggle Watch
 nmap <leader>tw :echo 'Not yet implmented.'<cr>
 
+
 " nvim-dap
 " Debug Nearest
 nmap <leader>td <Action>(ChooseDebugConfiguration)
@@ -499,6 +501,7 @@ vmap <BS> <Action>(EditorUnSelectWord)
 " https://neovim.io/doc/user/vim_diff.html#_default-mappings
 
 nnoremap Y y$
+nnoremap yig :%y<CR>
 inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
 " Q isn't exactly the same.
