@@ -500,7 +500,11 @@ vmap <BS> <Action>(EditorUnSelectWord)
 " Neovim mappings
 " https://neovim.io/doc/user/vim_diff.html#_default-mappings
 
-nnoremap Y y$
+set clipboard=
+" Visual mode と Normal mode で y を "+y にマップ
+vnoremap y "+y
+nnoremap y "+y
+nnoremap Y "+y$
 nnoremap yig :%y<CR>
 inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
