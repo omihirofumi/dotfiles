@@ -317,7 +317,7 @@ nmap <leader>un <Action>(ClearAllNotifications)
 " Telescope Keymaps
 
 " Find Files (Root Dir)
-nmap <leader><space> <Action>(GotoFile)
+nmap <leader><space> :action GotoFile<CR>
 " Switch Buffer
 nmap <leader>, <Action>(Switcher)
 " Grep (Root Dir)
