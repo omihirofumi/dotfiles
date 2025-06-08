@@ -17,6 +17,8 @@ bindkey '\e[109;5u' accept-line
 
 ######## alias ######################
 alias g=git
+alias lgit=lazygit
+alias lg=lazygit
 alias cat=bat
 alias ls=lsd
 
