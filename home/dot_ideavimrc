@@ -6,6 +6,10 @@
 let mapleader=" "
 let maplocalleader="\\"
 
+" which-key の記述設定
+let g:WhichKeyDesc_leader = "<leader> Leader key"
+let g:WhichKeyDesc_find = "<leader><space> Find Files"
+
 " Confirm to save changes before exiting modified buffer
 set formatoptions=jcroqlnt
 " Print line number
@@ -24,8 +28,11 @@ set notimeout
 set undolevels=10000
 " Disable line wrap
 set nowrap
-" Enable copy/paste to/from system keyboard
-set clipboard+=unnamedplus
+" disable copy/paste to/from system keyboard
+set clipboard=
+
+set visualbell
+set noerrorbells
 
 
 " Neovim settings that differ from Vim
@@ -483,6 +490,9 @@ if is_ide_rider | nmap <leader>tT <Action>(RiderUnitTestRunSolutionAction) | end
 " Toggle Watch
 nmap <leader>tw :echo 'Not yet implmented.'<cr>
 
+" source %
+nmap <leader>xx :action IdeaVim.ReloadVimRc.reload<cr>
+
 
 " nvim-dap
 " Debug Nearest
@@ -500,7 +510,6 @@ vmap <BS> <Action>(EditorUnSelectWord)
 " Neovim mappings
 " https://neovim.io/doc/user/vim_diff.html#_default-mappings
 
-set clipboard=
 " Visual mode と Normal mode で y を "+y にマップ
 vnoremap y "+y
 nnoremap y "+y
@@ -516,4 +525,7 @@ vnoremap > >gv
 vnoremap < <gv
 
 " There are several more Neovim mappings that need to be ported.
+
+" show diagnotic
+nmap <C-w><C-d> <Action>(ShowErrorDescription)
 
