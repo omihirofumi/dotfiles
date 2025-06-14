@@ -491,7 +491,7 @@ if is_ide_rider | nmap <leader>tT <Action>(RiderUnitTestRunSolutionAction) | end
 nmap <leader>tw :echo 'Not yet implmented.'<cr>
 
 " source %
-nmap <leader>xx :action IdeaVim.ReloadVimRc.reload<cr>
+nmap <leader>xx :source ~/.ideavimrc<cr>
 
 
 " nvim-dap
