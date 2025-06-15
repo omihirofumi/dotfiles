@@ -17,7 +17,19 @@ return {
     lazy = false,
     priority = 1001,
     config = function()
-      -- vim.cmd.colorscheme("kanagawa")
+      require("kanagawa").setup({
+        transparent = false, -- 背景を透明にする
+        compile = false,
+        undercurl = true,
+        commentStyle = { italic = true },
+        functionStyle = {},
+        keywordStyle = { italic = true },
+        statementStyle = { bold = true },
+        typeStyle = {},
+        dimInactive = false,
+        terminalColors = true,
+      })
+      vim.cmd.colorscheme("kanagawa")
     end,
   },
 

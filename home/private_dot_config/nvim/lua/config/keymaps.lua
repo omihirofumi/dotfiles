@@ -26,3 +26,22 @@ del("n", "<C-s>")
 vim.api.nvim_create_user_command("RenameIdentifier", function()
   vim.lsp.buf.rename()
 end, {})
+
+-- ファイル全体をGitHubで開く
+set("n", "<leader>ghf", function()
+  local file_path = vim.fn.expand("%")
+  local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD"):gsub("\n", "")
+
+  local cmd = string.format("gh browse --branch %s %s", branch, file_path)
+  vim.fn.system(cmd)
+end, { desc = "Open current file in GitHub" })
+
+-- カーソル行をGitHubで開く
+set("n", "<leader>ghl", function()
+  local line_num = vim.fn.line(".")
+  local file_path = vim.fn.expand("%")
+  local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD"):gsub("\n", "")
+
+  local cmd = string.format("gh browse --branch %s %s:%d", branch, file_path, line_num)
+  vim.fn.system(cmd)
+end, { desc = "Open current line in GitHub" })
