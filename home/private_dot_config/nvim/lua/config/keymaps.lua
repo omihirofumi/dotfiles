@@ -45,3 +45,13 @@ set("n", "<leader>ghl", function()
   local cmd = string.format("gh browse --branch %s %s:%d", branch, file_path, line_num)
   vim.fn.system(cmd)
 end, { desc = "Open current line in GitHub" })
+
+-- 選択範囲をGitHubで開く
+set("v", "<leader>ghl", function()
+  local start_line = vim.fn.line("'<")
+  local end_line = vim.fn.line("'>")
+  local file_path = vim.fn.expand("%")
+  local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD"):gsub("\n", "")
+  local cmd = string.format("gh browse --branch %s %s:%d-%d", branch, file_path, start_line, end_line)
+  vim.fn.system(cmd)
+end, { desc = "Open selected range in GitHub" })
