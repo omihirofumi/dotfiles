@@ -3,6 +3,9 @@
 " LazyVim default settings
 " https://www.lazyvim.org/configuration/general
 
+" action list
+" https://gist.github.com/zchee/9c78f91cc5ad771c1f5d#file-actionlist-vim
+
 let mapleader=" "
 let maplocalleader="\\"
 
@@ -507,6 +510,9 @@ nmap <C-Space> <Action>(EditorSelectWord)
 vmap <C-Space> <Action>(EditorSelectWord)
 vmap <BS> <Action>(EditorUnSelectWord)
 
+" github integ
+nmap <leader>ghl <Action>(Github.Open.In.Browser)
+
 " Neovim mappings
 " https://neovim.io/doc/user/vim_diff.html#_default-mappings
 
@@ -528,4 +534,3 @@ vnoremap < <gv
 
 " show diagnotic
 nmap <C-w><C-d> <Action>(ShowErrorDescription)
-
