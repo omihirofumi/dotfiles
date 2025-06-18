@@ -534,3 +534,6 @@ vnoremap < <gv
 
 " show diagnotic
 nmap <C-w><C-d> <Action>(ShowErrorDescription)
+
+" show menu
+nmap <leader>m <Action>(ShowPopupMenu)
