@@ -27,6 +27,11 @@ vim.api.nvim_create_user_command("RenameIdentifier", function()
   vim.lsp.buf.rename()
 end, {})
 
+-- GitHubを開く
+set("n", "<leader>gho", function()
+  vim.fn.system("gh browse")
+end, { desc = "Open github in browser" })
+
 -- ファイル全体をGitHubで開く
 set("n", "<leader>ghf", function()
   local file_path = vim.fn.expand("%")
