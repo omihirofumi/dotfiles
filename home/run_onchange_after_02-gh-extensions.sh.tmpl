@@ -1,0 +1,32 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+set -e
+
+# Check if GitHub CLI is installed
+if ! command -v gh >/dev/null 2>&1; then
+    echo "GitHub CLI (gh) not found. Skipping extension installation."
+    exit 0
+fi
+
+# List of GitHub CLI extensions to install
+GH_EXTENSIONS=(
+    "dlvhdr/gh-dash"
+    # Add more extensions here as needed
+    # "example/extension"
+)
+
+echo "Installing GitHub CLI extensions..."
+
+for extension in "${GH_EXTENSIONS[@]}"; do
+    echo "Installing $extension..."
+    if gh extension list | grep -q "$extension"; then
+        echo "$extension is already installed."
+    else
+        gh extension install "$extension"
+        echo "$extension installed successfully."
+    fi
+done
+
+echo "GitHub CLI extensions installation completed!"
+{{ end -}}
