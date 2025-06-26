@@ -20,7 +20,7 @@ alias g=git
 alias lgit=lazygit
 alias lg=lazygit
 alias cat=bat
-alias ls=eza
+alias ls='eza -lh'
 
 ############################### zPlug [START] ###################################
 source $ZPLUG_HOME/init.zsh
