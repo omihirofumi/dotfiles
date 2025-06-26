@@ -21,7 +21,6 @@ alias lgit=lazygit
 alias lg=lazygit
 alias cat=bat
 alias ls=lsd
-alias pr='gh dash'
 
 ############################### zPlug [START] ###################################
 source $ZPLUG_HOME/init.zsh
@@ -107,6 +106,16 @@ function fzf-worktree() {
 }
 zle -N fzf-worktree
 bindkey '^j' fzf-worktree
+
+# pr [-a] => gh dash
+function pr() {
+    if [[ "$1" == "-a" ]]; then
+        (cd ~ && gh dash)
+    else
+        gh dash "$@"
+    fi
+}
+
 ############################## functions [END] ###############################
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
