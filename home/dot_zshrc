@@ -95,8 +95,13 @@ bindkey '^g' fzf-dev
 # fzf x git-worktree
 function fzf-worktree() {
   local selected_worktree=$(git worktree list --porcelain 2>/dev/null | \
-    awk '/worktree / {print $2}' | \
-    fzf --reverse --preview 'git -C {} log --oneline -10 2>/dev/null || echo "No git history available"'
+    awk '
+      /worktree / {worktree=$2} 
+      /branch / {branch=substr($2, 12); print branch ":" worktree}
+    ' | \
+    fzf --reverse --delimiter ':' --with-nth 1 \
+        --preview 'git -C {2} log --oneline -10 2>/dev/null || echo "No git history available"' | \
+    cut -d':' -f2
   )
   if [ -n "$selected_worktree" ]; then
     BUFFER="cd ${selected_worktree}"

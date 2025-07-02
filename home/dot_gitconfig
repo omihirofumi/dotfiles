@@ -4,15 +4,28 @@
 [core]
 	excludesfile = ~/.gitignore_global
 [alias]
-  wb = "!f() { \
+[alias]
+  w = "!f() { \
+    ROOT_DIR=$(git rev-parse --git-common-dir); \
     if [ \"$1\" = \"-c\" ]; then \
       BRANCH_NAME=$(echo ${2} | tr '/' '-'); \
-      WORKTREE_PATH=.git/worktrees/${BRANCH_NAME}; \
-      git worktree add -b $2 $WORKTREE_PATH && cd $WORKTREE_PATH; \
+      WORKTREE_PATH=${ROOT_DIR}/my-worktrees/${BRANCH_NAME}; \
+      mkdir -p ${ROOT_DIR}/my-worktrees; \
+      git worktree add -b $2 $WORKTREE_PATH; \
+      echo \"Worktree created at: $WORKTREE_PATH\"; \
+      echo \"To switch: cd $WORKTREE_PATH\"; \
     else \
       BRANCH_NAME=$(echo ${1} | tr '/' '-'); \
-      WORKTREE_PATH=.git/worktrees/${BRANCH_NAME}; \
-      git worktree add $WORKTREE_PATH $1 && cd $WORKTREE_PATH; \
+      WORKTREE_PATH=${ROOT_DIR}/my-worktrees/${BRANCH_NAME}; \
+      mkdir -p ${ROOT_DIR}/my-worktrees; \
+      git worktree add $WORKTREE_PATH $1; \
+      echo \"Worktree created at: $WORKTREE_PATH\"; \
+      echo \"To switch: cd $WORKTREE_PATH\"; \
     fi; \
   }; f"
-  wd = worktree remove .
+  wd = "!f() { \
+    CURRENT_DIR=$(pwd); \
+    ROOT_DIR=$(git rev-parse --git-common-dir | sed 's|/.git$||'); \
+    cd \"$ROOT_DIR\"; \
+    git worktree remove \"$CURRENT_DIR\"; \
+  }; f"
