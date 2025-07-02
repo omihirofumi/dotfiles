@@ -4,5 +4,15 @@
 [core]
 	excludesfile = ~/.gitignore_global
 [alias]
-  wb = "!f() { WORKTREE_PATH=../$(basename $(pwd))-${1}; git worktree add $WORKTREE_PATH $2; }; f"
+  wb = "!f() { \
+    if [ \"$1\" = \"-c\" ]; then \
+      BRANCH_NAME=$(echo ${2} | tr '/' '-'); \
+      WORKTREE_PATH=.git/worktrees/${BRANCH_NAME}; \
+      git worktree add -b $2 $WORKTREE_PATH && cd $WORKTREE_PATH; \
+    else \
+      BRANCH_NAME=$(echo ${1} | tr '/' '-'); \
+      WORKTREE_PATH=.git/worktrees/${BRANCH_NAME}; \
+      git worktree add $WORKTREE_PATH $1 && cd $WORKTREE_PATH; \
+    fi; \
+  }; f"
   wd = worktree remove .
