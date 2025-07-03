@@ -23,9 +23,4 @@
       echo \"To switch: cd $WORKTREE_PATH\"; \
     fi; \
   }; f"
-  wd = "!f() { \
-    CURRENT_DIR=$(pwd); \
-    ROOT_DIR=$(git rev-parse --git-common-dir | sed 's|/.git$||'); \
-    cd \"$ROOT_DIR\"; \
-    git worktree remove \"$CURRENT_DIR\"; \
-  }; f"
+  wd = worktree remove
