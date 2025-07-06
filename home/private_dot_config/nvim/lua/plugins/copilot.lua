@@ -31,7 +31,7 @@ return {
   {
     url = "https://github.com/zbirenbaum/copilot.lua",
     cmd = "Copilot",
-    cond = false,
+    cond = true,
     event = { "InsertEnter", "CursorHold" },
     config = function()
       require("copilot").setup({

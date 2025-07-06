@@ -9,7 +9,7 @@ return {
     -- for example
     provider = "copilot",
     copilot = {
-      model = "claude-3.7-sonnet",
+      model = "claude-4-sonnet",
     },
     auto_suggetions_provider = "copilot",
     file_selector = {
