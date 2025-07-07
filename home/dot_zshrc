@@ -10,9 +10,8 @@ export ZPLUG_HOME=/opt/homebrew/opt/zplug
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080"
 export HOMEBREW_BREWFILE=~/.Brewfile
 # Colima + Testcontainers設定
-export DOCKER_HOST=unix://${HOME}/.config/colima/default/docker.sock
+export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
-export TESTCONTAINERS_HOST_OVERRIDE=$(colima ls -j | jq -r '.address')
 
 ######## bindkey ####################
 # ctrl + M for ghostty
