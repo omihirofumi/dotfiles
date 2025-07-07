@@ -9,6 +9,9 @@ source <(fzf --zsh)
 export ZPLUG_HOME=/opt/homebrew/opt/zplug
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080"
 export HOMEBREW_BREWFILE=~/.Brewfile
+# Colima + Testcontainers設定
+export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
+export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 
 ######## bindkey ####################
 # ctrl + M for ghostty
