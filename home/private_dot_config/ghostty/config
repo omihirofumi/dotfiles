@@ -7,6 +7,7 @@ macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
 macos-option-as-alt = true
 
+
 # keymaps
 keybind = global:cmd+`=toggle_quick_terminal
 keybind = shift+ctrl+left_bracket=previous_tab
@@ -20,4 +21,3 @@ keybind = cmd+h=goto_split:left
 keybind = cmd+j=goto_split:bottom
 keybind = cmd+k=goto_split:top
 keybind = cmd+l=goto_split:right
-
