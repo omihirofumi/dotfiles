@@ -1,15 +1,19 @@
 {
   "permissions": {
+    "defaultMode": "default",
     "allow": [
-      "Bash(ls:*)",
-      "Bash(cat:*)",
-      "Bash(pwd:*)",
-      "Bash(cd:*)",
-      "Bash(find:*)",
-      "Bash(grep:*)",
       "Bash(rg:*)",
-      "Bash(jq:*)",
-      "Bash(echo:*)"
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(grep:*)",
+      "Bash(diff:*)",
+      "Bash(mkdir:*)",
+      "Bash(cat:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(docker compose:*)",
+      "Bash(docker compose exec:*)",
+      "Bash(docker compose logs:*)"
     ],
     "deny": []
   }
