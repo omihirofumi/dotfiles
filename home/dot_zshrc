@@ -25,6 +25,7 @@ alias lg=lazygit
 alias cat=bat
 alias ls='eza -l'
 alias view='nvim -R'
+alias vim='nvim'
 
 ############################### zPlug [START] ###################################
 source $ZPLUG_HOME/init.zsh
@@ -131,3 +132,5 @@ function pr() {
 export PATH="/Users/hirofumi.omi/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+alias claude="/Users/hirofumi.omi/.claude/local/claude"
