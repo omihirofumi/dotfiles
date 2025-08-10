@@ -1,6 +1,6 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "permissions": {
-    "defaultMode": "default",
     "allow": [
       "Bash(rg:*)",
       "Bash(find:*)",
@@ -15,6 +15,10 @@
       "Bash(docker compose exec:*)",
       "Bash(docker compose logs:*)"
     ],
-    "deny": []
+    "deny": [],
+    "defaultMode": "default"
+  },
+  "feedbackSurveyState": {
+    "lastShownTime": 1754284884598
   }
 }
