@@ -540,3 +540,34 @@ nmap <C-w><C-d> <Action>(ShowErrorDescription)
 " show menu
 nmap <leader>m <Action>(ShowPopupMenu)
 vmap <leader>m <Action>(ShowPopupMenu)
+
+
+" import from intellij
+sethandler <S-CR> a:vim
+sethandler <S-Left> a:vim
+sethandler <S-Right> a:vim
+sethandler <C-;> a:vim
+sethandler <C-S-;> a:vim
+sethandler <M-;> a:vim
+sethandler <M-S-;> a:vim
+sethandler <C-A> a:ide
+sethandler <C-B> a:vim
+sethandler <C-C> a:vim
+sethandler <C-D> a:vim
+sethandler <C-E> a:ide
+sethandler <C-F> a:vim
+sethandler <C-G> a:vim
+sethandler <C-H> a:vim
+sethandler <C-I> a:vim
+sethandler <C-J> a:vim
+sethandler <C-K> a:vim
+sethandler <A-K> a:vim
+sethandler <C-L> a:vim
+sethandler <C-M> a:ide
+sethandler <C-N> a:vim
+sethandler <C-O> a:vim
+sethandler <C-P> a:vim
+sethandler <C-R> a:vim
+sethandler <C-T> a:vim
+sethandler <C-W> a:vim
+
