@@ -10,7 +10,7 @@ export ZPLUG_HOME=/opt/homebrew/opt/zplug
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080"
 export HOMEBREW_BREWFILE=~/.Brewfile
 # Colima + Testcontainers設定
-export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
+export DOCKER_HOST='unix:///var/folders/p7/j402lzvj2cjbyq9jdy_cmb9c0000gq/T/podman/podman-machine-default-api.sock'
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 
 ######## bindkey ####################
@@ -26,6 +26,7 @@ alias cat=bat
 alias ls='eza -l'
 alias view='nvim -R'
 alias vim='nvim'
+alias docker='podman'
 
 ############################### zPlug [START] ###################################
 source $ZPLUG_HOME/init.zsh
@@ -127,10 +128,6 @@ function pr() {
 }
 
 ############################## functions [END] ###############################
+#
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/hirofumi.omi/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-
-alias claude="/Users/hirofumi.omi/.claude/local/claude"
+alias claude='~/.local/bin/claude'

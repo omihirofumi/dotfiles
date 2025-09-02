@@ -40,6 +40,7 @@ return {
       { "<leader>gpp", "<cmd>DiffviewFocusFiles<CR>", desc = "Diffview: Focus Files Panel" },
       { "<leader>gph", "<cmd>DiffviewFileHistory %<CR>", desc = "Diffview: File History (current file)" },
       { "<leader>gpo", "<cmd>PRDiff<CR>", desc = "Diffview: Open base...HEAD (from gh)" },
+      { "<leader>gpm", "<cmd>DiffviewOpen main...HEAD<CR>", desc = "Diffview: main...HEAD" },
       { "<leader>gpn", "]q", desc = "Diffview: Next file" },
       { "<leader>gpN", "[q", desc = "Diffview: Prev file" },
       { "<leader>gob", "<cmd>tabnext<CR>", desc = "Back to Diffview tab" },
