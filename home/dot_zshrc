@@ -50,6 +50,10 @@ zplug "chrissicool/zsh-256color"
 zplug "mrowa44/emojify", as:command
 # z
 zplug "agkozak/zsh-z"
+# git fuzzy finder
+zplug "bigH/git-fuzzy", as:command, use:"bin/git-fuzzy"
+# tab completion for fzf
+zplug "Aloxaf/fzf-tab"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -131,3 +135,4 @@ function pr() {
 #
 
 alias claude='~/.local/bin/claude'
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
