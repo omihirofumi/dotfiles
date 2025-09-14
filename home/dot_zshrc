@@ -10,8 +10,8 @@ export ZPLUG_HOME=/opt/homebrew/opt/zplug
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080"
 export HOMEBREW_BREWFILE=~/.Brewfile
 # Colima + Testcontainers設定
-export DOCKER_HOST='unix:///var/folders/p7/j402lzvj2cjbyq9jdy_cmb9c0000gq/T/podman/podman-machine-default-api.sock'
-export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
+export DOCKER_HOST="unix://$(podman machine inspect --format '{{ .ConnectionInfo.PodmanSocket.Path }}')"
+# export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 
 ######## bindkey ####################
 # ctrl + M for ghostty
@@ -24,6 +24,7 @@ alias lgit=lazygit
 alias lg=lazygit
 alias cat=bat
 alias ls='eza -l'
+alias ll='eza -la'
 alias view='nvim -R'
 alias vim='nvim'
 alias docker='podman'
