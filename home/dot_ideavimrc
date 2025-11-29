@@ -541,6 +541,10 @@ nmap <C-w><C-d> <Action>(ShowErrorDescription)
 nmap <leader>m <Action>(ShowPopupMenu)
 vmap <leader>m <Action>(ShowPopupMenu)
 
+" Insert-mode cursor movement
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+
 
 " import from intellij
 sethandler <S-CR> a:vim
