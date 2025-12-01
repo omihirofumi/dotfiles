@@ -26,7 +26,6 @@ alias ls='eza -l'
 alias ll='eza -la'
 alias view='nvim -R'
 alias vim='nvim'
-alias docker='podman'
 
 ############################### zPlug [START] ###################################
 source $ZPLUG_HOME/init.zsh
