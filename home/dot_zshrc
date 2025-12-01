@@ -10,6 +10,7 @@ export ZPLUG_HOME=/opt/homebrew/opt/zplug
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080"
 export HOMEBREW_BREWFILE=~/.Brewfile
 # Colima + Testcontainers設定
+export DOCKER_HOST="$(podman machine inspect --format '{{ .ConnectionInfo.PodmanSocket.Path }}')"
 # export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 
 ######## bindkey ####################
