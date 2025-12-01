@@ -9,8 +9,7 @@ source <(fzf --zsh)
 export ZPLUG_HOME=/opt/homebrew/opt/zplug
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080"
 export HOMEBREW_BREWFILE=~/.Brewfile
-# Colima + Testcontainers設定
-# export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
+export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 
 ######## bindkey ####################
 # ctrl + M for ghostty
@@ -136,3 +135,7 @@ function pr() {
 alias claude='~/.local/bin/claude'
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/hirofumi.omi/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
