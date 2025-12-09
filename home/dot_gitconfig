@@ -34,3 +34,6 @@
   }; f"
   wd = worktree remove
 	pushf = push --force-with-lease
+
+[rebase]
+  autoStash = true
