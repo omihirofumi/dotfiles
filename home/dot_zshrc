@@ -77,7 +77,7 @@ function fzf-src () {
   zle clear-screen
 }
 zle -N fzf-src
-bindkey '^]' fzf-src
+bindkey '^g' fzf-src
 
 
 # fzf x development
@@ -98,7 +98,7 @@ function fzf-dev () {
 }
 
 zle -N fzf-dev
-bindkey '^g' fzf-dev
+bindkey '^j' fzf-dev
 
 # pr [-a] => gh dash
 function pr() {
@@ -128,7 +128,7 @@ function fzf-favdir () {
 
 zle -N fzf-favdir
 # Ctrl + J を割り当て
-bindkey '^J' fzf-favdir
+bindkey '^]' fzf-favdir
 
 ############################## functions [END] ###############################
 #
