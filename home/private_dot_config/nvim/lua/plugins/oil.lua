@@ -45,18 +45,31 @@ return {
       ["q"] = "actions.close",
       ["<esc>"] = "actions.close",
 
-      ["yf"] = {
+      ["yp"] = {
         desc = "Yank absolute path of file under cursor",
         callback = function()
           local oil = require("oil")
           local entry = oil.get_cursor_entry()
-          if entry then
-            local fullpath = (oil.get_current_dir() or "") .. entry.name
-            vim.fn.setreg("+", fullpath)
-            print("Yanked: " .. fullpath)
-          else
+          local dir = oil.get_current_dir()
+
+          if not entry then
             print("No entry under cursor")
+            return
           end
+
+          if not dir then
+            print("Current dir is unknown (not a local adapter?)")
+            return
+          end
+
+          -- パス結合は joinpath を使うと安全
+          local fullpath = vim.fs.normalize(vim.fs.joinpath(dir, entry.name))
+
+          -- デフォルトレジスタと + 両方に入れる
+          vim.fn.setreg(vim.v.register, fullpath)
+          vim.fn.setreg("+", fullpath)
+
+          print("Yanked: " .. fullpath)
         end,
       },
     },
