@@ -140,3 +140,7 @@ export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 export PATH="/Users/hirofumi.omi/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 export EDITOR=nvim
+
+
+# nvimでterminalがviinsになってしまうのを防ぐ
+bindkey -e
