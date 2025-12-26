@@ -1,0 +1,12 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[user]
+email = "99390907+omihirofumi@users.noreply.github.com"
+name = "omihirofumi"
+
+[ui]
+merge-editor = ":builtin"
+default-command = "log"
+
+[colors]
+change_id = "#ff1525"
