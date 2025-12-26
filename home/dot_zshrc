@@ -1,6 +1,7 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(/opt/homebrew/bin/mise activate zsh)"
-eval "$(starship init zsh)"
+eval "$(oh-my-posh init zsh --config '~/.config/negligible.omp.json')"
+# eval "$(starship init zsh)"
 eval "$(thefuck --alias)"
 
 source <(fzf --zsh)
