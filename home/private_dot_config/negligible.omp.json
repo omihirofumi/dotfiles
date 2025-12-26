@@ -39,7 +39,7 @@
           "options": {
             "fetch_status": true
           },
-          "template": ":: jj\uf1fa{{ .ChangeID }}{{ if .ClosestBookmarks }} {{ .ClosestBookmarks }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }} ",
+          "template": ":: jj\uf1fa{{ .ChangeID }}{{ if .ClosestBookmarks }} {{ index (splitList \" \" .ClosestBookmarks) 0 }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }} ",
           "foreground": "#F05133",
           "type": "jujutsu",
           "style": "plain"
