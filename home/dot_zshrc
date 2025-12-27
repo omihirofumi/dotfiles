@@ -6,7 +6,6 @@ eval "$(thefuck --alias)"
 
 
 source <(fzf --zsh)
-source <(COMPLETE=zsh jj)
 
 ######## PATH #######################
 export ZPLUG_HOME=/opt/homebrew/opt/zplug
@@ -68,6 +67,7 @@ zplug load
 
 # zsh-autosuggestions設定
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+source <(COMPLETE=zsh jj)
 
 ############################## functions [START] ##############################
 # fzf x ghq
