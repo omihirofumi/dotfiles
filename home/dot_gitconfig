@@ -34,6 +34,7 @@
   }; f"
   wd = worktree remove
 	pushf = push --force-with-lease
+  sw = switch
 
 [rebase]
   autosquash = true
