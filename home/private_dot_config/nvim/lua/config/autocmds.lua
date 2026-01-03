@@ -16,5 +16,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "markdown", "txt" },
   callback = function()
     vim.opt_local.spell = false
+    vim.opt_local.conceallevel = 0
+    vim.opt_local.concealcursor = ""
   end,
 })
