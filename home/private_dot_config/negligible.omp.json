@@ -13,7 +13,7 @@
       "segments": [
         {
           "template": "{{ if .WSL }}WSL at {{ end }}{{ .Icon }}",
-          "foreground": "cyan",
+          "foreground": "#FF9F1C",
           "type": "os",
           "style": "powerline"
         },
@@ -22,7 +22,7 @@
             "style": "full"
           },
           "template": " {{ .Path }} ",
-          "foreground": "cyan",
+          "foreground": "#FFB703",
           "type": "path",
           "style": "plain"
         },
@@ -31,7 +31,7 @@
             "fetch_status": true
           },
           "template": ":: {{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }} ",
-          "foreground": "#F1502F",
+          "foreground": "#F77F00",
           "type": "git",
           "style": "plain"
         },
@@ -40,7 +40,7 @@
             "fetch_status": true
           },
           "template": ":: jj\uf1fa{{ .ChangeID }}{{ if .ClosestBookmarks }} {{ index (splitList \" \" .ClosestBookmarks) 0 }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }} ",
-          "foreground": "#F05133",
+          "foreground": "#E76F51",
           "type": "jujutsu",
           "style": "plain"
         }
@@ -52,19 +52,19 @@
       "segments": [
         {
           "template": "| root ",
-          "foreground": "red",
+          "foreground": "#D62828",
           "type": "root",
           "style": "plain"
         },
         {
           "template": "| \ue798 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} ",
-          "foreground": "#06A4CE",
+          "foreground": "#FF9F1C",
           "type": "dart",
           "style": "powerline"
         },
         {
           "template": "| \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
-          "foreground": "#6CA35E",
+          "foreground": "#FFB703",
           "type": "node",
           "style": "powerline"
         },
@@ -74,7 +74,7 @@
             "fetch_virtual_env": true
           },
           "template": "| \ue235 {{ .Venv }} ",
-          "foreground": "#4584b6",
+          "foreground": "#F77F00",
           "type": "python",
           "style": "plain"
         }
@@ -90,11 +90,11 @@
             "always_enabled": true
           },
           "template": "➜ ",
-          "foreground": "lightGreen",
+          "foreground": "#FF9F1C",
           "type": "status",
           "style": "powerline",
           "foreground_templates": [
-            "{{ if gt .Code 0 }}red{{ end }}"
+            "{{ if gt .Code 0 }}#D62828{{ end }}"
           ]
         }
       ]
