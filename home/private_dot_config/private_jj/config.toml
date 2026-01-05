@@ -9,6 +9,7 @@ merge-editor = ":builtin"
 default-command = "log"
 # Use Difftastic by default
 diff-formatter = ["difft", "--color=always", "$left", "$right"]
+diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
 
 [colors]
 change_id = "#ff1525"
