@@ -5,11 +5,10 @@ eval "$(oh-my-posh init zsh --config '~/.config/negligible.omp.json')"
 eval "$(thefuck --alias)"
 eval "$(ww init zsh)"
 
-
-source <(fzf --zsh)
+# fzf (keybindings/completion)
+# source <(fzf --zsh)
 
 ######## PATH #######################
-export ZPLUG_HOME=/opt/homebrew/opt/zplug
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080"
 export HOMEBREW_BREWFILE=~/.Brewfile
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
@@ -17,7 +16,6 @@ export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 ######## bindkey ####################
 # ctrl + M for ghostty
 bindkey '\e[109;5u' accept-line
-
 
 ######## alias ######################
 alias g=git
@@ -29,45 +27,74 @@ alias ll='eza -la'
 alias view='nvim -R'
 alias vim='nvim'
 
-############################### zPlug [START] ###################################
-source $ZPLUG_HOME/init.zsh
-# Load theme file
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-# 非同期処理できるようになる
-zplug "mafredri/zsh-async"
-# テーマ(ここは好みで。調べた感じpureが人気)
-# zplug "sindresorhus/pure"
-# 構文のハイライト(https://github.com/zsh-users/zsh-syntax-highlighting)
-zplug "zsh-users/zsh-syntax-highlighting"
-# コマンド入力途中で上下キー押したときの過去履歴がいい感じに出るようになる
-zplug "zsh-users/zsh-history-substring-search"
-# 過去に入力したコマンドの履歴が灰色のサジェストで出る
-zplug "zsh-users/zsh-autosuggestions"
-# 補完強化
-zplug "zsh-users/zsh-completions"
-# 256色表示にする
-zplug "chrissicool/zsh-256color"
-# コマンドライン上の文字リテラルの絵文字を emoji 化する
-zplug "mrowa44/emojify", as:command
-# z
-zplug "agkozak/zsh-z"
-# git fuzzy finder
-zplug "bigH/git-fuzzy", as:command, use:"bin/git-fuzzy"
-# tab completion for fzf
-zplug "Aloxaf/fzf-tab"
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
+################################################################################
+# zinit
+################################################################################
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
 fi
-zplug load
-############################### zplug [END] ###################################
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+### End of Zinit's installer chunk
+
+############################### plugins (zplug -> zinit) ########################
+# 非同期処理できるようになる
+zinit light mafredri/zsh-async
+
+# 256色表示にする
+zinit light chrissicool/zsh-256color
+
+# 補完強化（compinit 前）
+zinit ice blockf
+zinit light zsh-users/zsh-completions
+
+# compinit（ここで一度だけ）
+autoload -Uz compinit
+compinit
+
+# tab completion for fzf（compinit 後、他のUI系より前）
+zinit light Aloxaf/fzf-tab
+
+# 構文のハイライト
+zinit light zsh-users/zsh-syntax-highlighting
+
+# コマンド入力途中で上下キー押したときの過去履歴
+zinit light zsh-users/zsh-history-substring-search
+
+# 灰色サジェスト
+zinit light zsh-users/zsh-autosuggestions
+
+# コマンドライン上の文字リテラルの絵文字を emoji 化する（コマンド）
+zinit ice as"command"
+zinit light mrowa44/emojify
+
+# z
+zinit light agkozak/zsh-z
+
+# git fuzzy finder（コマンド、bin/git-fuzzy を pick）
+zinit ice as"command" pick"bin/git-fuzzy"
+zinit light bigH/git-fuzzy
+################################################################################
 
 # zsh-autosuggestions設定
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+# jj completion
 source <(COMPLETE=zsh jj)
 
 ############################## functions [START] ##############################
@@ -82,7 +109,6 @@ function fzf-src () {
 }
 zle -N fzf-src
 bindkey '^g' fzf-src
-
 
 # fzf x development
 function fzf-dev () {
@@ -100,7 +126,6 @@ function fzf-dev () {
   fi
   zle clear-screen
 }
-
 zle -N fzf-dev
 bindkey '^j' fzf-dev
 
@@ -129,13 +154,10 @@ function fzf-favdir () {
   fi
   zle clear-screen
 }
-
 zle -N fzf-favdir
-# Ctrl + J を割り当て
 bindkey '^]' fzf-favdir
 
 ############################## functions [END] ###############################
-#
 
 alias claude='~/.local/bin/claude'
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
@@ -143,11 +165,10 @@ export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/hirofumi.omi/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-export EDITOR=nvim
 
+export EDITOR=nvim
 
 # nvimでterminalがviinsになってしまうのを防ぐ
 bindkey -e
-
 
 eval "$(ww completion zsh)"
