@@ -148,3 +148,6 @@ export EDITOR=nvim
 
 # nvimでterminalがviinsになってしまうのを防ぐ
 bindkey -e
+
+
+eval "$(ww completion zsh)"
