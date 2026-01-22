@@ -7,13 +7,17 @@ return {
     {
       "<leader>e",
       function()
-        vim.cmd("Oil")
+        if vim.bo.filetype ~= "oil" then
+          vim.cmd("Oil --float")
+        end
       end,
     },
     {
       "-",
       function()
-        vim.cmd("Oil")
+        if vim.bo.filetype ~= "oil" then
+          vim.cmd("Oil --float")
+        end
       end,
     },
   },
@@ -24,14 +28,12 @@ return {
 
     preview_win = {
       update_on_cursor_moved = true,
-      disable_preview = function()
-        return true
-      end,
     },
 
     keymaps = {
       ["q"] = "actions.close",
       ["<esc>"] = "actions.close",
+      ["p"] = "actions.preview",
     },
 
     float = {
@@ -58,5 +60,9 @@ return {
         end)
       end,
     })
+  end,
+
+  config = function(_, opts)
+    require("oil").setup(opts)
   end,
 }
