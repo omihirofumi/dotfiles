@@ -18,6 +18,15 @@ return {
     servers = {
       -- tsserver will be automatically installed with mason and loaded with lspconfig
       tsserver = {},
+      jdtls = {
+        cmd_env = {
+          JAVA_HOME = vim.fn.expand("$HOME/.local/share/mise/installs/java/oracle-21.0.2"),
+          PATH = vim.fn.expand("$HOME/.local/share/mise/installs/java/oracle-21.0.2/bin:")
+            .. vim.fn.expand("$HOME/.local/share/nvim/mason/bin:")
+            .. (vim.env.PATH or ""),
+        },
+      },
+      kotlin_lsp = {},
     },
     -- you can do any additional lsp server setup here
     -- return true if you don't want this server to be setup with lspconfig
@@ -26,6 +35,29 @@ return {
       -- example to setup with typescript.nvim
       tsserver = function(_, opts)
         require("typescript").setup({ server = opts })
+        return true
+      end,
+      kotlin_lsp = function(_, opts)
+        local configs = require("lspconfig.configs")
+        local lspconfig = require("lspconfig")
+
+        if not configs.kotlin_lsp then
+          configs.kotlin_lsp = {
+            default_config = {
+              cmd = { "kotlin-lsp" },
+              filetypes = { "kotlin" },
+              root_dir = lspconfig.util.root_pattern(
+                "gradlew",
+                ".git",
+                "mvnw",
+                "settings.gradle"
+              ),
+              single_file_support = true,
+            },
+          }
+        end
+
+        lspconfig.kotlin_lsp.setup(opts)
         return true
       end,
       -- Specify * to use this function as a fallback for any server

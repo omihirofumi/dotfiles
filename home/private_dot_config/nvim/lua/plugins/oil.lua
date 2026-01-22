@@ -7,13 +7,13 @@ return {
     {
       "<leader>e",
       function()
-        vim.cmd("Oil --float --preview")
+        vim.cmd("Oil")
       end,
     },
     {
       "-",
       function()
-        vim.cmd("Oil --float --preview")
+        vim.cmd("Oil")
       end,
     },
   },
@@ -25,7 +25,7 @@ return {
     preview_win = {
       update_on_cursor_moved = true,
       disable_preview = function()
-        return false
+        return true
       end,
     },
 
@@ -54,7 +54,7 @@ return {
         local dir = vim.fn.fnamemodify(arg, ":p")
         vim.schedule(function()
           vim.cmd.cd(dir)
-          vim.cmd(("Oil --float --preview %s"):format(vim.fn.fnameescape(dir)))
+          vim.cmd(("Oil %s"):format(vim.fn.fnameescape(dir)))
         end)
       end,
     })
