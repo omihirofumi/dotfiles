@@ -14,6 +14,19 @@ symbol = 'AWS > '
 style = 'bold yellow'
 disabled = false
 
+[custom.jj]
+command = """
+jj log -r @ --no-graph --template '
+change_id.short()
+++ " "
+++ description.first_line()
+++ if(conflict, "⚠️", "")
+'
+"""
+when = "jj root"
+format = "[🪄 $output]($style) "
+style = "bold purple"
+
 # [gcloud]
 # format = '[$symbol$account(@$domain)(\($region\))]($style) '
 # symbol = '🅶 '
