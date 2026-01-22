@@ -13,24 +13,27 @@ return {
     end,
   },
   ---@class PluginLspOpts
-  opts = {
+  opts = function(_, opts)
+    local util = require("lspconfig.util")
+    local configs = require("lspconfig.configs")
+
     ---@type lspconfig.options
-    servers = {
-      -- tsserver will be automatically installed with mason and loaded with lspconfig
-      tsserver = {},
-    },
+    opts.servers = opts.servers or {}
+    -- tsserver will be automatically installed with mason and loaded with lspconfig
+    opts.servers.tsserver = opts.servers.tsserver or {}
+
     -- you can do any additional lsp server setup here
     -- return true if you don't want this server to be setup with lspconfig
     ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
-    setup = {
-      -- example to setup with typescript.nvim
-      tsserver = function(_, opts)
-        require("typescript").setup({ server = opts })
-        return true
-      end,
-      -- Specify * to use this function as a fallback for any server
-      -- ["*"] = function(server, opts) end,
-    },
-    inlay_hints = { enabled = false },
-  },
+    opts.setup = opts.setup or {}
+    -- example to setup with typescript.nvim
+    opts.setup.tsserver = function(_, server_opts)
+      require("typescript").setup({ server = server_opts })
+      return true
+    end
+
+    opts.inlay_hints = { enabled = false }
+
+    return opts
+  end,
 }
