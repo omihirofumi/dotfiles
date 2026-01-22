@@ -6,7 +6,7 @@ eval "$(thefuck --alias)"
 eval "$(ww init zsh)"
 
 # fzf (keybindings/completion)
-# source <(fzf --zsh)
+source <(fzf --zsh)
 
 ######## PATH #######################
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080"
