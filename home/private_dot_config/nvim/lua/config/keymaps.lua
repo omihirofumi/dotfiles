@@ -6,7 +6,6 @@
 local set = vim.keymap.set
 local del = vim.keymap.del
 local permalink = require("util.permalink")
-local jj_diff = require("jj_diff")
 
 set({ "v", "n" }, "y", '"+y')
 set({ "n" }, "Y", '"+y$')
@@ -27,8 +26,6 @@ del("n", "<C-s>")
 vim.api.nvim_create_user_command("RenameIdentifier", function()
   vim.lsp.buf.rename()
 end, {})
-
-jj_diff.setup()
 
 -- GitHub関連（関数を外部ファイルから読込）
 set("n", "<leader>gho", permalink.open_github, { desc = "Open github in browser" })

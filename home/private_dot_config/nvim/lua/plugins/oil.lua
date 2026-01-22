@@ -23,14 +23,14 @@ return {
     {
       "<leader>e",
       function()
-        require("oil").open_float(nil, { preview = {} })
+        require("oil").open_float()
       end,
       desc = "Open parent directory (float)",
     },
     {
       "-",
       function()
-        require("oil").open_float(nil, { preview = {} })
+        require("oil").open_float()
       end,
       desc = "Open parent directory (float)",
     },
@@ -75,7 +75,10 @@ return {
     },
 
     preview_win = {
-      update_on_cursor_moved = true,
+      update_on_cursor_moved = false,
+      disable_preview = function()
+        return vim.api.nvim_win_get_config(0).relative ~= ""
+      end,
     },
 
     float = {
