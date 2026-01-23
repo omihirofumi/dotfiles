@@ -28,6 +28,7 @@ alias ls='eza -l'
 alias ll='eza -la'
 alias view='nvim -R'
 alias vim='nvim'
+alias memo='nb'
 
 ################################################################################
 # zinit
