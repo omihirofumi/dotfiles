@@ -3,44 +3,27 @@
 {
   networking.hostName = HOSTNAME;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  system.primaryUser = USERNAME;
 
-  nix.gc = {
-    automatic = true;
-    options = "--delete-older-than 14d";
-  };
+  nix.enable = false;
 
-  environment.systemPackages = with pkgs; [
-    git
-    curl
-  ];
-
+  # macOS defaults
   system.defaults = {
-    dock = {
-      autohide = true;
-      show-recents = false;
-      mru-spaces = false;
-    };
+    dock.autohide = true;
+    dock.show-recents = false;
+    dock.mru-spaces = false;
 
-    finder = {
-      AppleShowAllExtensions = true;
-      ShowPathbar = true;
-      ShowStatusBar = true;
-      FXPreferredViewStyle = "Nlsv";
-    };
+    finder.AppleShowAllExtensions = true;
+    finder.ShowPathbar = true;
+    finder.ShowStatusBar = true;
+    finder.FXPreferredViewStyle = "Nlsv";
 
     NSGlobalDomain = {
-      AppleShowAllExtensions = true;
-
-      # キーリピート
       KeyRepeat = 2;
       InitialKeyRepeat = 15;
-
-      # トラックパッド速度
-      "com.apple.trackpad.scaling" = 3.0;
-
-      # 長押しアクセント無効
       ApplePressAndHoldEnabled = false;
+      "com.apple.trackpad.scaling" = 3.0;
+      AppleShowAllExtensions = true;
     };
   };
 
