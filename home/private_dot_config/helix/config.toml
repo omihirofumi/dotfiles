@@ -16,3 +16,6 @@ cursor-shape.select = "underline"
 [keys.normal]
 "C-y" = "scroll_up"
 "D"   = "kill_to_line_end"
+
+[editor.indent-guides]
+render = true
