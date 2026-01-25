@@ -1,5 +1,6 @@
 theme = "material_oceanic"
 
+
 [editor]
 cursor-shape.normal = "block"
 cursor-shape.insert = "bar"
@@ -16,6 +17,8 @@ cursor-shape.select = "underline"
 [keys.normal]
 "C-y" = "scroll_up"
 "D"   = "kill_to_line_end"
+x = "extend_line_below"
+X = "extend_line_above"
 
 [editor.indent-guides]
 render = true
