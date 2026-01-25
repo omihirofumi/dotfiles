@@ -5,6 +5,7 @@ theme = "material_oceanic"
 cursor-shape.normal = "block"
 cursor-shape.insert = "bar"
 cursor-shape.select = "underline"
+rainbow-brackets = true
 
 [keys.insert]
 "C-[" = "normal_mode"
