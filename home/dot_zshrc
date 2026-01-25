@@ -13,6 +13,7 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080"
 export HOMEBREW_BREWFILE=~/.Brewfile
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 export EDITOR=hx
+export HELIX_RUNTIME=~/ghq/github.com/helix-editor/helix/runtime
 
 ######## bindkey ####################
 # ctrl + M for ghostty
@@ -171,3 +172,13 @@ export PATH="/Users/hirofumi.omi/.rd/bin:$PATH"
 bindkey -e
 
 eval "$(ww completion zsh)"
+
+# Allow Ctrl-z to toggle between suspend and resume
+function Resume {
+  fg
+  zle push-input
+  BUFFER=""
+  zle accept-line
+}
+zle -N Resume
+bindkey "^Z" Resume
