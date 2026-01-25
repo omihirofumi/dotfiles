@@ -1,7 +1,0 @@
-[ui.colors]
-"selected" = { bg = "#2D4F67" }
-"revisions details selected" = { bg = "#001e26" }
-
-[revisions]
-log_batching = true
-revset = "::"
