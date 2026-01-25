@@ -1,0 +1,9 @@
+theme = "material_oceanic"
+
+[editor]
+cursor-shape.normal = "block"
+cursor-shape.insert = "bar"
+cursor-shape.select = "underline"
+
+[keys.insert]
+"C-]" = "normal_mode"

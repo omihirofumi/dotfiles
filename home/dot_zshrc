@@ -12,6 +12,7 @@ source <(fzf --zsh)
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#808080"
 export HOMEBREW_BREWFILE=~/.Brewfile
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
+export EDITOR=hx
 
 ######## bindkey ####################
 # ctrl + M for ghostty
@@ -165,8 +166,6 @@ export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/hirofumi.omi/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
-export EDITOR=nvim
 
 # nvimでterminalがviinsになってしまうのを防ぐ
 bindkey -e
