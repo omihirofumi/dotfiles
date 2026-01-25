@@ -8,7 +8,7 @@ cursor-shape.select = "underline"
 [keys.insert]
 "C-[" = "normal_mode"
 "C-m" = "insert_newline"
-"C-@" = "completion"
+"C-space" = "completion"
 "C-e" = "goto_line_end"
 
 [keys.normal]
