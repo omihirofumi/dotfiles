@@ -6,11 +6,11 @@ cursor-shape.insert = "bar"
 cursor-shape.select = "underline"
 
 [keys.insert]
-"C-]" = "normal_mode"
+"C-[" = "normal_mode"
 "C-m" = "insert_newline"
 "C-@" = "completion"
+"C-e" = "goto_line_end"
 
 [keys.normal]
 "C-y" = "scroll_up"
-"C-e" = "scroll_down"
 "D"   = "kill_to_line_end"
