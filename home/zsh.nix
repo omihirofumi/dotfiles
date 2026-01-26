@@ -39,6 +39,7 @@
       export EDITOR=hx
 
       ######## prompt / helpers ########
+      eval "$(/opt/homebrew/bin/brew shellenv)"
       # mise
       eval "$(${pkgs.mise}/bin/mise activate zsh)"
 
@@ -188,6 +189,15 @@
       if command -v ww >/dev/null 2>&1; then
         eval "$(ww completion zsh)"
       fi
-    '';
+      # Allow Ctrl-z to toggle between suspend and resume
+      function Resume {
+        fg
+        zle push-input
+        BUFFER=""
+        zle accept-line
+      }
+      zle -N Resume
+      bindkey "^Z" Resume
+          '';
   };
 }

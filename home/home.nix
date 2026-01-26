@@ -11,7 +11,6 @@
     zinit
     mise
     oh-my-posh
-
     git
     gh
     lazygit
@@ -21,10 +20,22 @@
     fd
     jq
     ghq
-
     helix
-
     jujutsu
+    pet
+    bat
+    direnv
+    docker
+    docker-buildx
+    docker-compose
+    docker-credential-helpers
+    jjui
+    ni
+    sops
+    tig
+    tldr
+    nb
+    codex
   ];
 
   imports = [
@@ -34,4 +45,30 @@
 
   home.file.".config/favdirs".source = ./favdirs;
   home.file.".config/negligible.omp.json".source = ./negligible.omp.json;
+  home.file.".ideavimrc".source = ./.ideavimrc;
+
+  xdg.configFile."karabiner" = {
+    source = ./karabiner;
+    recursive = true;
+  };
+
+  xdg.configFile."ghostty" = {
+    source = ./ghostty;
+    recursive = true;
+  };
+
+  xdg.configFile."helix" = {
+    source = ./helix;
+    recursive = true;
+  };
+
+  xdg.configFile."jj" = {
+    source = ./jj;
+    recursive = true;
+  };
+
+  xdg.configFile."jjui" = {
+    source = ./jjui;
+    recursive = true;
+  };
 }

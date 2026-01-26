@@ -31,6 +31,13 @@
     };
   };
 
+  homebrew = {
+    enable = true;
+    casks = [ "deskpad" "homerow" "linear-linear" "raindropio" "raycast" ];
+    brews = [ "mole" ];
+  };
+
+
   home-manager.backupFileExtension = "bak";
 
   system.stateVersion = 5;

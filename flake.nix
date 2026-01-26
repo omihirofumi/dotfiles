@@ -24,6 +24,7 @@
 
       modules = [
         ./darwin/configuration.nix
+        ./darwin/nixpkgs.nix
 
         home-manager.darwinModules.home-manager
         {

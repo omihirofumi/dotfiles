@@ -4,10 +4,12 @@
   programs.git = {
     enable = true;
 
-    userName = "omihirofumi";
-    userEmail = "99390907+omihirofumi@users.noreply.github.com";
+    settings = {
+      user = {
+        name  = "omihirofumi";
+        email = "99390907+omihirofumi@users.noreply.github.com";
+      };
 
-    extraConfig = {
       core = {
         excludesFile = "${config.home.homeDirectory}/.config/git/ignore";
         pager = "delta";
@@ -23,14 +25,18 @@
       };
 
       merge = {
-        conflictstyle = "zdiff3";
+        conflictStyle = "zdiff3";
       };
 
       rebase = {
-        autosquash = true;
+        autoSquash = true;
       };
     };
   };
 
   xdg.configFile."git/ignore".source = ./git/ignore;
+
+  home.packages = with pkgs; [
+    delta
+  ];
 }

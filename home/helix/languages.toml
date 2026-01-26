@@ -1,0 +1,24 @@
+[[language]]
+name = "java"
+language-servers = ["jdtls"]
+
+[language-server.jdtls]
+command = "jdtls"
+args = ["--java-executable", "/Users/hirofumiomi/.local/share/mise/installs/java/21/bin/java"]
+
+[language.debugger]
+name = "java-debug"
+transport = "stdio"
+command = "java"
+args = [
+  "-jar",
+  "/Users/hirofumiomi/ghq/github.com/microsoft/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.53.2.jar"
+]
+
+[[language.debugger.templates]]
+name = "attach-5005"
+request = "attach"
+
+[language.debugger.templates.args]
+hostName = "127.0.0.1"
+port = "5005"
