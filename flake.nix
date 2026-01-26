@@ -13,8 +13,10 @@
 
   outputs = inputs@{ self, nixpkgs, nix-darwin, home-manager, ... }:
   let
-    USERNAME = "hirofumiomi";
-    HOSTNAME = "hirofumiomi";
+    envUsername = builtins.getEnv "USERNAME";
+    envHostname = builtins.getEnv "HOSTNAME";
+    USERNAME = if envUsername != "" then envUsername else "hirofumiomi";
+    HOSTNAME = if envHostname != "" then envHostname else "hirofumiomi";
     system = "aarch64-darwin";
   in
   {
