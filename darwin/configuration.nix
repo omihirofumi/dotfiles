@@ -33,9 +33,21 @@
 
   homebrew = {
     enable = true;
-    casks = [ "deskpad" "homerow" "linear-linear" "raindropio" "raycast" ];
+    casks = [ "deskpad" "ghostty" "homerow" "linear-linear" "raindropio" "raycast" "karabiner-elements" ];
     brews = [ "mole" ];
   };
+
+  environment.systemPackages = with pkgs; [
+    _1password-cli
+    _1password-gui
+    google-chrome
+    jetbrains-toolbox
+    dbeaver-bin
+    notion-app
+    chatgpt
+    alt-tab-macos
+    rancher
+  ];
 
 
   home-manager.backupFileExtension = "bak";
