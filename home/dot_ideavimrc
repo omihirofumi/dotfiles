@@ -1640,4 +1640,9 @@ xmap <Space>wj <Action>(TabShiftActions.MoveFocusDown)
 nmap <Space>wl <Action>(TabShiftActions.MoveFocusRight)
 xmap <Space>wl <Action>(TabShiftActions.MoveFocusRight)
 
+" NERDTree
+" https://github.com/JetBrains/ideavim/wiki/NERDTree-support
+Plug 'preservim/nerdtree
+nnoremap <Space>e :NERDTreeToggle<CR>
+xnoremap <Space>e :NERDTreeToggle<CR>
 
