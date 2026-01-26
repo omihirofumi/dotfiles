@@ -44,7 +44,6 @@
     ./git.nix
   ];
 
-  home.file.".config/favdirs".source = ./favdirs;
   home.file.".config/negligible.omp.json".source = ./negligible.omp.json;
   home.file.".ideavimrc".source = ./.ideavimrc;
 
