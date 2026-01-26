@@ -36,6 +36,7 @@
     tldr
     nb
     codex
+    difftastic
   ];
 
   imports = [
