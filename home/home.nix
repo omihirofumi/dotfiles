@@ -47,6 +47,8 @@
   home.file.".config/negligible.omp.json".source = ./negligible.omp.json;
   home.file.".ideavimrc".source = ./.ideavimrc;
 
+  xdg.configFile."favdirs".text = "";
+
   xdg.configFile."karabiner" = {
     source = ./karabiner;
     recursive = true;
