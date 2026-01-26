@@ -1,12 +1,16 @@
 { pkgs, USERNAME, HOSTNAME, ... }:
 
 {
-  networking.hostName = HOSTNAME;
 
   system.primaryUser = USERNAME;
 
   nix.enable = false;
 
+  users.users.${USERNAME} = {
+    home = "/Users/${USERNAME}";
+    shell = pkgs.zsh;
+  }
+;
   # macOS defaults
   system.defaults = {
     dock.autohide = true;
@@ -26,6 +30,8 @@
       AppleShowAllExtensions = true;
     };
   };
+
+  home-manager.backupFileExtension = "bak";
 
   system.stateVersion = 5;
 }
