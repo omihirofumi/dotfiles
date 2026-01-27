@@ -20,14 +20,9 @@ C-y = "scroll_up"
 D   = "kill_to_line_end"
 x = "extend_line_below"
 X = "extend_line_above"
-C-g = [
-  ":write-all",
-  ":new",
-  ":insert-output jj diff",
-  ":buffer-close!",
-  ":redraw",
-  ":reload-all"
-]
 
 [editor.indent-guides]
 render = true
+
+[editor.file-picker]
+hiddern = false

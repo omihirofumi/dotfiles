@@ -28,6 +28,8 @@
     };
 
     initContent = ''
+      ######## PATH ###########
+      export PATH="$HOME/.cargo/bin:$PATH"
       ######## core env ########
       export LANG=ja_JP.UTF-8
       export LC_ALL=ja_JP.UTF-8
@@ -37,6 +39,7 @@
 
       export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
       export EDITOR=hx
+      export HELIX_RUNTIME=$HOME/ghq/github.com/helix-editor/helix/runtime
 
       ######## prompt / helpers ########
       eval "$(/opt/homebrew/bin/brew shellenv)"

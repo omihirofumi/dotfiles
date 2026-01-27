@@ -20,7 +20,6 @@
     fd
     jq
     ghq
-    helix
     jujutsu
     pet
     bat
