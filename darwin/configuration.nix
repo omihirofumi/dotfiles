@@ -2,6 +2,8 @@
 
 {
 
+  nix.settings.extra-experimental-features = [ "nix-command" "flakes" ]; 
+
   system.primaryUser = USERNAME;
 
   nix.enable = false;
