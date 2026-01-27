@@ -25,4 +25,4 @@ X = "extend_line_above"
 render = true
 
 [editor.file-picker]
-hiddern = false
+hidden = false
