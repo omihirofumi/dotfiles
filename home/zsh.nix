@@ -79,6 +79,8 @@
 
       # async / colors
       zinit light mafredri/zsh-async
+      # Defer 256color setup to reduce startup cost.
+      zinit ice wait'1' silent
       zinit light chrissicool/zsh-256color
 
       # completions（compinit 前）
@@ -87,7 +89,7 @@
 
       # compinit（ここで一度だけ）
       autoload -Uz compinit
-      compinit
+      compinit -C
 
       # fzf-tab（compinit 後）
       zinit light Aloxaf/fzf-tab
