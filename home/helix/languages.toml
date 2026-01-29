@@ -9,14 +9,7 @@ args = ["--java-executable", "/Users/hirofumiomi/.local/share/mise/installs/java
 [language-server.angular-ls]
 command = "ngserver"
 
-args = [
-  "--ngProbeLocations",
-  "${$NODE_MODULES_GLOBAL}",
-  "--tsProbeLocations",
-  "${$NODE_MODULES_GLOBAL}",
-  "--stdio",
-  # If this for some reason doesn't work, try replacing ${NODE_MODULES_GLOBAL} with the absolute paths, e.g. output of `npm root -g`
-]
+args = ["--stdio"]
 
 file-types = ["ts", "typescript", "html"]
 
@@ -26,5 +19,5 @@ language-servers = ["angular-ls", "typescript-language-server"]
 
 [[language]]
 name = "html"
-language-servers = ["angular-ls", "vscode-html-language-server"]
+language-servers = ["angular-ls", "vscode-html-languageservice"]
 
