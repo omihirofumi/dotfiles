@@ -6,19 +6,25 @@ language-servers = ["jdtls"]
 command = "jdtls"
 args = ["--java-executable", "/Users/hirofumiomi/.local/share/mise/installs/java/21/bin/java"]
 
-[language.debugger]
-name = "java-debug"
-transport = "stdio"
-command = "java"
+[language-server.angular-ls]
+command = "ngserver"
+
 args = [
-  "-jar",
-  "/Users/hirofumiomi/ghq/github.com/microsoft/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.53.2.jar"
+  "--ngProbeLocations",
+  "${$NODE_MODULES_GLOBAL}",
+  "--tsProbeLocations",
+  "${$NODE_MODULES_GLOBAL}",
+  "--stdio",
+  # If this for some reason doesn't work, try replacing ${NODE_MODULES_GLOBAL} with the absolute paths, e.g. output of `npm root -g`
 ]
 
-[[language.debugger.templates]]
-name = "attach-5005"
-request = "attach"
+file-types = ["ts", "typescript", "html"]
 
-[language.debugger.templates.args]
-hostName = "127.0.0.1"
-port = "5005"
+[[language]]
+name = "typescript"
+language-servers = ["angular-ls", "typescript-language-server"]
+
+[[language]]
+name = "html"
+language-servers = ["angular-ls", "vscode-html-language-server"]
+

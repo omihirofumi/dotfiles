@@ -41,6 +41,8 @@
       export EDITOR=hx
       export HELIX_RUNTIME=$HOME/ghq/github.com/helix-editor/helix/runtime
 
+      export NODE_MODULES_GLOBAL="$(npm root -g)"
+
       ######## prompt / helpers ########
       eval "$(/opt/homebrew/bin/brew shellenv)"
       # mise
