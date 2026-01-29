@@ -21,3 +21,9 @@ language-servers = ["angular-ls", "typescript-language-server"]
 name = "html"
 language-servers = ["angular-ls", "vscode-html-languageservice"]
 
+[language-server.kakehashi]
+command = "kakehashi"
+
+[[language]]
+name = "markdown"
+language-servers = ["kakehashi"]
