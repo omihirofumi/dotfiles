@@ -34,7 +34,6 @@
     tig
     tldr
     nb
-    codex
     difftastic
   ];
 
