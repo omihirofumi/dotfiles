@@ -60,10 +60,6 @@
     hide_env_diff = true
   '';
 
-  xdg.configFile."nix/nix.conf".text = ''
-    warn-dirty = false
-  '';
-
   xdg.configFile."helix" = {
     source = ./helix;
     recursive = true;
