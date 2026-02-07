@@ -24,7 +24,6 @@
       cat = "bat";
       ls = "eza -l";
       ll = "eza -la";
-      # Neovim は使わない前提なので alias しない
     };
 
     initContent = ''
@@ -46,10 +45,12 @@
       # mise
       eval "$(${pkgs.mise}/bin/mise activate zsh)"
 
+      # direnv
+      eval "$(${pkgs.direnv}/bin/direnv hook zsh)"
+
       # oh-my-posh（設定ファイルは home-manager で ~/.config/negligible.omp.json を配布している前提）
       eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config "$HOME/.config/negligible.omp.json")"
 
-      # ww（正体不明なので存在する時だけ）
       if command -v ww >/dev/null 2>&1; then
         eval "$(ww init zsh)"
       fi
