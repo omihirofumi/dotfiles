@@ -39,7 +39,7 @@
       autoUpdate = true;
       upgrade = true;
     };
-    casks = [ "deskpad" "ghostty" "homerow" "linear-linear" "raindropio" "raycast" "karabiner-elements" "google-chrome" ];
+    casks = [ "deskpad" "ghostty" "homerow" "linear-linear" "raindropio" "raycast" "karabiner-elements" "google-chrome" "chatgpt"];
     brews = [ "mole" ];
   };
 
@@ -49,7 +49,6 @@
     jetbrains-toolbox
     dbeaver-bin
     notion-app
-    chatgpt
     alt-tab-macos
     rancher
   ];

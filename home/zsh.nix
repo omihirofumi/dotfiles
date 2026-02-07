@@ -42,6 +42,10 @@
 
       ######## prompt / helpers ########
       eval "$(/opt/homebrew/bin/brew shellenv)"
+      # opam (OCaml)
+      if command -v opam >/dev/null 2>&1; then
+        eval "$(opam env --shell=zsh)"
+      fi
       # mise
       eval "$(${pkgs.mise}/bin/mise activate zsh)"
 
