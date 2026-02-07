@@ -35,14 +35,17 @@
 
   homebrew = {
     enable = true;
-    casks = [ "deskpad" "ghostty" "homerow" "linear-linear" "raindropio" "raycast" "karabiner-elements" ];
+    onActivation = {
+      autoUpdate = true;
+      upgrade = true;
+    };
+    casks = [ "deskpad" "ghostty" "homerow" "linear-linear" "raindropio" "raycast" "karabiner-elements" "google-chrome" ];
     brews = [ "mole" ];
   };
 
   environment.systemPackages = with pkgs; [
     _1password-cli
     _1password-gui
-    google-chrome
     jetbrains-toolbox
     dbeaver-bin
     notion-app
