@@ -23,6 +23,7 @@
     jujutsu
     pet
     bat
+    rustup
     direnv
     docker
     docker-buildx
