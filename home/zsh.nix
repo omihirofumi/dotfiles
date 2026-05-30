@@ -35,7 +35,7 @@ in
 
     initContent = ''
       ######## PATH ###########
-      export PATH="$HOME/.cargo/bin:$PATH"
+      export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
       ######## core env ########
       export LANG=ja_JP.UTF-8
       export LC_ALL=ja_JP.UTF-8

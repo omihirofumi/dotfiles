@@ -49,6 +49,20 @@
 
   home.file.".config/negligible.omp.json".source = ./negligible.omp.json;
   home.file.".ideavimrc".source = ./.ideavimrc;
+  home.file.".local/bin/mole" = {
+    executable = true;
+    text = ''
+      #!/bin/sh
+      for candidate in /opt/homebrew/opt/mole/bin/mole /opt/homebrew/Cellar/mole/*/bin/mole; do
+        if [ -x "$candidate" ]; then
+          exec "$candidate" "$@"
+        fi
+      done
+
+      echo "mole executable not found" >&2
+      exit 127
+    '';
+  };
 
   xdg.configFile."karabiner" = {
     source = ./karabiner;

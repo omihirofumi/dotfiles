@@ -48,7 +48,13 @@
       "raycast" "karabiner-elements" "google-chrome" "chatgpt"
     ];
     taps = [ "k1low/tap" ];
-    brews = [ "k1low/tap/mo" ];
+    brews = [
+      {
+        name = "k1low/tap/mo";
+        link = true;
+        conflicts_with = [ "mole" ];
+      }
+    ];
   };
 
   environment.systemPackages = with pkgs; [
