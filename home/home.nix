@@ -45,6 +45,7 @@
     ./helix.nix
     ./tmux.nix
     ./claude.nix
+    ./codex.nix
   ];
 
   home.file.".config/negligible.omp.json".source = ./negligible.omp.json;

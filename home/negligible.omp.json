@@ -18,6 +18,12 @@
           "style": "powerline"
         },
         {
+          "template": "{{ if .Env.DEVBOX_SHELL_ENABLED }} devbox {{ end }}",
+          "foreground": "#2EC4B6",
+          "type": "text",
+          "style": "plain"
+        },
+        {
           "options": {
             "style": "full"
           },
