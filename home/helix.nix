@@ -43,6 +43,11 @@ let
       kakehashi = {
         command = "kakehashi";
       };
+
+      "kotlin-language-server" = {
+        command = "kotlin-lsp";
+        args = [ "--stdio" ];
+      };
     };
 
     language = [
@@ -57,6 +62,10 @@ let
       {
         name = "markdown";
         "language-servers" = [ "kakehashi" ];
+      }
+      {
+        name = "kotlin";
+        "language-servers" = [ "kotlin-language-server" ];
       }
     ];
   };

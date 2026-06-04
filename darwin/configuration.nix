@@ -47,13 +47,14 @@
       "deskpad" "ghostty" "homerow" "linear-linear" "raindropio"
       "raycast" "karabiner-elements" "google-chrome" "chatgpt"
     ];
-    taps = [ "k1low/tap" ];
+    taps = [ "k1low/tap" "JetBrains/utils" ];
     brews = [
       {
         name = "k1low/tap/mo";
         link = true;
         conflicts_with = [ "mole" ];
       }
+      "JetBrains/utils/kotlin-lsp"
     ];
   };
 
