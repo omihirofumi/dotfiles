@@ -2,6 +2,7 @@
 experimental = true
 
 [tools]
+codex = "latest"
 "npm:@angular/language-server" = "latest"
 
 [bootstrap.brew.taps]
