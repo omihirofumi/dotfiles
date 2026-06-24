@@ -1,0 +1,16 @@
+#!/bin/sh
+set -eu
+
+ts_probe="$(npm root -g 2>/dev/null || true)"
+ng_probe="$ts_probe"
+
+if [ -z "$ts_probe" ]; then
+  ts_probe="/opt/homebrew/lib/node_modules"
+  ng_probe="/opt/homebrew/lib/node_modules"
+fi
+
+exec ngserver \
+  --stdio \
+  --tsProbeLocations "$ts_probe" \
+  --ngProbeLocations "$ng_probe" \
+  "$@"

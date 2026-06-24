@@ -1,0 +1,113 @@
+[settings]
+experimental = true
+
+[tools]
+"npm:@angular/language-server" = "latest"
+
+[bootstrap.brew.taps]
+"k1low/tap" = "https://github.com/k1low/homebrew-tap.git"
+"JetBrains/utils" = "https://github.com/JetBrains/homebrew-utils.git"
+
+[bootstrap.packages]
+"brew:fzf" = "latest"
+"brew:zinit" = "latest"
+"brew:oh-my-posh" = "latest"
+"brew:git" = "latest"
+"brew:gh" = "latest"
+"brew:lazygit" = "latest"
+"brew:bat" = "latest"
+"brew:eza" = "latest"
+"brew:ripgrep" = "latest"
+"brew:fd" = "latest"
+"brew:jq" = "latest"
+"brew:ghq" = "latest"
+"brew:pet" = "latest"
+"brew:rustup" = "latest"
+"brew:docker" = "latest"
+"brew:docker-buildx" = "latest"
+"brew:docker-compose" = "latest"
+"brew:docker-credential-helper" = "latest"
+"brew:jj" = "latest"
+"brew:jjui" = "latest"
+"brew:ni" = "latest"
+"brew:sops" = "latest"
+"brew:tig" = "latest"
+"brew:tldr" = "latest"
+"brew:nb" = "latest"
+"brew:difftastic" = "latest"
+"brew:zls" = "latest"
+"brew:zellij" = "latest"
+"brew:git-delta" = "latest"
+"brew:typescript-language-server" = "latest"
+"brew:vscode-langservers-extracted" = "latest"
+"brew:typescript" = "latest"
+"brew:k1low/tap/mo" = "latest"
+"brew:JetBrains/utils/kotlin-lsp" = "latest"
+[dotfiles]
+"~/.config/mise/config.toml" = "mise.toml"
+"~/.zshrc" = "home/.zshrc"
+"~/.gitconfig" = "home/.gitconfig"
+"~/.config/git/ignore" = "home/git/ignore"
+"~/.tmux.conf" = "home/.tmux.conf"
+"~/.config/direnv/direnv.toml" = "home/direnv.toml"
+"~/.config/negligible.omp.json" = "home/negligible.omp.json"
+"~/.ideavimrc" = "home/.ideavimrc"
+"~/.local/bin" = { source = "home/bin", mode = "symlink-each" }
+"~/.config/karabiner" = "home/karabiner"
+"~/.config/ghostty" = "home/ghostty"
+"~/.config/helix/config.toml" = "home/helix/config.toml"
+"~/.config/helix/languages.toml" = "home/helix/languages.toml"
+"~/.config/jj" = "home/jj"
+"~/.config/jjui" = "home/jjui"
+"~/.claude/CLAUDE.md" = "home/claude/CLAUDE.md"
+"~/.claude/rules/interaction.md" = "home/claude/rules/interaction.md"
+"~/.claude/skills/deep-codebase-research/SKILL.md" = "home/claude/skills/deep-codebase-research/SKILL.md"
+"~/.claude/skills/output-plan-detailed/SKILL.md" = "home/claude/skills/output-plan-detailed/SKILL.md"
+"~/.codex/AGENTS.md" = "home/codex/AGENTS.md"
+
+[bootstrap.macos.dock]
+autohide = true
+show_recents = false
+mru_spaces = false
+
+[bootstrap.macos.finder]
+show_pathbar = true
+show_status_bar = true
+preferred_view_style = "list"
+
+[bootstrap.macos.keyboard]
+key_repeat = 2
+initial_key_repeat = 15
+press_and_hold = false
+
+[bootstrap.macos.defaults]
+NSGlobalDomain = { "com.apple.trackpad.scaling" = 3.0, AppleShowAllExtensions = true }
+"com.apple.finder" = { AppleShowAllExtensions = true }
+
+[bootstrap.hooks.post-defaults]
+run = 'defaults write com.mitchellh.ghostty NSUserKeyEquivalents -dict "Hide Ghostty" "@~$h"'
+
+[tasks.bootstrap]
+run = '''
+mkdir -p ~/.config
+touch ~/.config/favdirs
+
+if command -v brew >/dev/null 2>&1; then
+  brew install --cask \
+    1password \
+    deskpad \
+    ghostty \
+    homerow \
+    linear-linear \
+    raindropio \
+    raycast \
+    karabiner-elements \
+    google-chrome \
+    chatgpt \
+    jetbrains-toolbox \
+    dbeaver-community \
+    notion \
+    alt-tab \
+    rancher
+fi
+'''
