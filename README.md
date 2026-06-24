@@ -2,23 +2,27 @@
 
 ## Setup (macOS)
 
-### Install Nix
+### Install mise
 
+Install `mise` yourself before bootstrapping this repository.
 
 ```sh
-sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install)
+curl https://mise.run | sh
 ```
 
-### Apply (nix-darwin + home-manager)
+### Bootstrap (mise)
+
+Use mise bootstrap from this repository for Homebrew formulae/casks,
+dotfiles, tools, and user-level macOS defaults:
 
 ```sh
-./bin/switch.sh
+mise trust
+mise bootstrap --yes --force-dotfiles --skip packages,tools,task
+mise bootstrap --yes
 ```
 
-If you prefer running the command manually, keep `--impure` so env vars are read:
+To inspect the changes first:
 
 ```sh
-USERNAME="username" HOSTNAME="hostname" \
-  nix --extra-experimental-features "nix-command flakes" \
-  run github:LnL7/nix-darwin -- switch --flake github:omihirofumi/dotfiles#${HOSTNAME} --impure
+mise bootstrap --dry-run
 ```

@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+
+node_path="$(npm root -g 2>/dev/null || true)"
+if [ -n "$node_path" ]; then
+  export NODE_PATH="${node_path}${NODE_PATH:+:$NODE_PATH}"
+fi
+
+exec typescript-language-server --stdio "$@"
