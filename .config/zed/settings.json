@@ -1,4 +1,14 @@
 {
+  "collaboration_panel": {
+    "button": true,
+    "dock": "right"
+  },
+  "agent": {
+    "button": true,
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
