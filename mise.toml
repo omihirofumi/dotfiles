@@ -1,5 +1,7 @@
 [settings]
 experimental = true
+dotfiles.root = "~/.dotfiles"
+dotfiles.default_mode = "symlink"
 
 [tools]
 codex = "latest"
@@ -44,27 +46,32 @@ codex = "latest"
 "brew:typescript" = "latest"
 "brew:k1low/tap/mo" = "latest"
 "brew:JetBrains/utils/kotlin-lsp" = "latest"
+
+[bootstrap.repos]
+"~/.dotfiles" = { url = "https://github.com/omihirofumi/dotfiles", ref = "main" }
+
 [dotfiles]
 "~/.config/mise/config.toml" = "mise.toml"
-"~/.zshrc" = "home/.zshrc"
-"~/.gitconfig" = "home/.gitconfig"
-"~/.config/git/ignore" = "home/git/ignore"
-"~/.tmux.conf" = "home/.tmux.conf"
-"~/.config/direnv/direnv.toml" = "home/direnv.toml"
-"~/.config/negligible.omp.json" = "home/negligible.omp.json"
-"~/.ideavimrc" = "home/.ideavimrc"
-"~/.local/bin" = { source = "home/bin", mode = "symlink-each" }
-"~/.config/karabiner" = "home/karabiner"
-"~/.config/ghostty" = "home/ghostty"
-"~/.config/helix/config.toml" = "home/helix/config.toml"
-"~/.config/helix/languages.toml" = "home/helix/languages.toml"
-"~/.config/jj" = "home/jj"
-"~/.config/jjui" = "home/jjui"
-"~/.claude/CLAUDE.md" = "home/claude/CLAUDE.md"
-"~/.claude/rules/interaction.md" = "home/claude/rules/interaction.md"
-"~/.claude/skills/deep-codebase-research/SKILL.md" = "home/claude/skills/deep-codebase-research/SKILL.md"
-"~/.claude/skills/output-plan-detailed/SKILL.md" = "home/claude/skills/output-plan-detailed/SKILL.md"
-"~/.codex/AGENTS.md" = "home/codex/AGENTS.md"
+"~/.zshrc" = ".zshrc"
+"~/.gitconfig" = ".gitconfig"
+"~/.config/git/ignore" = ".config/git/ignore"
+"~/.tmux.conf" = ".tmux.conf"
+"~/.config/direnv/direnv.toml" = ".config/direnv/direnv.toml"
+"~/.config/negligible.omp.json" = ".config/negligible.omp.json"
+"~/.ideavimrc" = ".ideavimrc"
+"~/.local/bin" = { source = ".local/bin", mode = "symlink-each" }
+"~/.config/karabiner" = ".config/karabiner"
+"~/.config/ghostty" = ".config/ghostty"
+"~/.config/helix/config.toml" = ".config/helix/config.toml"
+"~/.config/helix/languages.toml" = ".config/helix/languages.toml"
+"~/.config/jj" = ".config/jj"
+"~/.config/jjui" = ".config/jjui"
+"~/.claude/CLAUDE.md" = ".claude/CLAUDE.md"
+"~/.claude/rules/interaction.md" = ".claude/rules/interaction.md"
+"~/.claude/skills/deep-codebase-research/SKILL.md" = ".claude/skills/deep-codebase-research/SKILL.md"
+"~/.claude/skills/output-plan-detailed/SKILL.md" = ".claude/skills/output-plan-detailed/SKILL.md"
+"~/.codex/AGENTS.md" = ".config/codex/AGENTS.md"
+"/Users/hirofumiomi/.config/zed/settings.json" = { mode = "symlink" }
 
 [bootstrap.macos.dock]
 autohide = true
@@ -109,6 +116,7 @@ if command -v brew >/dev/null 2>&1; then
     dbeaver-community \
     notion \
     alt-tab \
-    rancher
+    rancher \
+    zed
 fi
 '''
