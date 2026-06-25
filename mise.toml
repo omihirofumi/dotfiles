@@ -71,7 +71,7 @@ codex = "latest"
 "~/.claude/skills/deep-codebase-research/SKILL.md" = ".claude/skills/deep-codebase-research/SKILL.md"
 "~/.claude/skills/output-plan-detailed/SKILL.md" = ".claude/skills/output-plan-detailed/SKILL.md"
 "~/.codex/AGENTS.md" = ".config/codex/AGENTS.md"
-"/Users/hirofumiomi/.config/zed/settings.json" = { mode = "symlink" }
+"~/.config/zed/settings.json" = { source = ".config/zed/settings.json", mode = "symlink" }
 
 [bootstrap.macos.dock]
 autohide = true
