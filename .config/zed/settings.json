@@ -1,26 +1,29 @@
 {
+  "terminal": {
+    "font_family": "JetBrainsMono Nerd Font",
+  },
   "collaboration_panel": {
     "button": true,
-    "dock": "right"
+    "dock": "right",
   },
   "agent": {
     "button": true,
     "dock": "right",
     "favorite_models": [],
-    "model_parameters": []
+    "model_parameters": [],
   },
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
-    "anthropic_retention": false
+    "anthropic_retention": false,
   },
   "session": {
-    "trust_all_worktrees": true
+    "trust_all_worktrees": true,
   },
   "agent_servers": {
     "codex-acp": {
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "base_keymap": "JetBrains",
   "vim_mode": false,
