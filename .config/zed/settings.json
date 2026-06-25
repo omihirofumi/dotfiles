@@ -1,0 +1,19 @@
+{
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+    "anthropic_retention": false
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry"
+    }
+  },
+  "base_keymap": "JetBrains",
+  "vim_mode": false,
+  "helix_mode": true,
+  "theme": "Kanagawa",
+}
