@@ -24,12 +24,13 @@ X = "extend_line_above"
 space.g.f = ":sh gh browse \"%{buffer_name}\""
 space.g.s = ":sh gh browse \"%{buffer_name}:%{selection_line_start}-%{selection_line_end}\""
 space.g.c = ":sh echo \"%{buffer_name}:%{selection_line_start}-%{selection_line_end}\" | pbcopy"
+space.X = ":pipe-to python3 -c 'import subprocess, sys, urllib.parse; subprocess.run([\"open\", \"naniapp://translate?source=\" + urllib.parse.quote(sys.stdin.read())])'"
 
 [keys.select]
 space.g.f = ":sh gh browse \"%{buffer_name}\""
 space.g.s = ":sh gh browse \"%{buffer_name}:%{selection_line_start}-%{selection_line_end}\""
 space.g.c = ":sh echo \"%{buffer_name}:%{selection_line_start}-%{selection_line_end}\" | pbcopy"
-space.x = ":pipe-to python3 -c 'import subprocess, sys, urllib.parse; subprocess.run([\"open\", \"naniapp://translate?source=\" + urllib.parse.quote(sys.stdin.read())])'"
+space.X = ":pipe-to python3 -c 'import subprocess, sys, urllib.parse; subprocess.run([\"open\", \"naniapp://translate?source=\" + urllib.parse.quote(sys.stdin.read())])'"
 
 [editor.indent-guides]
 render = true
