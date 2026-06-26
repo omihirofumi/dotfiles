@@ -26,7 +26,7 @@ alias lgit="lazygit"
 alias lg="lazygit"
 alias cat="bat"
 alias ls="eza -l"
-alias la="eaz -a"
+alias la="eza -la"
 alias ll="eza -la"
 
 ######## prompt / helpers ########
