@@ -115,8 +115,8 @@ if command -v brew >/dev/null 2>&1; then
     jetbrains-toolbox \
     dbeaver-community \
     notion \
-    alt-tab \
     rancher \
-    zed
+    zed \
+    dockdoor
 fi
 '''
