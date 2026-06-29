@@ -98,6 +98,11 @@ mkdir -p ~/.config
 touch ~/.config/favdirs
 
 if command -v brew >/dev/null 2>&1; then
+  # API metadata未公開のtapはmise bootstrap packagesで管理できないため直接インストール
+  # ↑claudeの調査コピペ。真相は不明
+  brew tap k1LoW/tap
+  brew install k1LoW/tap/mo
+
   brew install --cask --force \
     1password \
     deskpad \
