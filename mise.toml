@@ -120,6 +120,7 @@ if command -v brew >/dev/null 2>&1; then
     rancher \
     zed \
     dockdoor \
-    kotlin-lsp
+    kotlin-lsp \
+    font-jetbrains-mono-nerd-font
 fi
 '''
