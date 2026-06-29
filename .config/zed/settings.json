@@ -1,5 +1,10 @@
 {
-  "diff_view_style": "split",
+  "soft_wrap": "editor_width",
+  "project_panel": {
+    "hide_hidden": true,
+  },
+  "icon_theme": "Zed (Default)",
+  "diff_view_style": "unified",
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "terminal": {
     "font_family": "JetBrainsMono Nerd Font",
@@ -34,7 +39,11 @@
   "base_keymap": "JetBrains",
   "vim_mode": false,
   "helix_mode": true,
-  "theme": "Kanagawa Dragon",
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Kanagawa",
+  },
   "lsp": {
     "jdtls": {
       "settings": {

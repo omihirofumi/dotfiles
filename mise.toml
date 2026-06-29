@@ -5,6 +5,7 @@ dotfiles.default_mode = "symlink"
 
 [tools]
 codex = "latest"
+"github:ushironoko/octorus" = "latest"
 "npm:@angular/language-server" = "latest"
 
 [bootstrap.brew.taps]
