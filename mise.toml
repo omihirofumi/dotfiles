@@ -42,6 +42,7 @@ codex = "latest"
 "brew:typescript-language-server" = "latest"
 "brew:vscode-langservers-extracted" = "latest"
 "brew:typescript" = "latest"
+"brew:mole" = "latest"
 
 [bootstrap.repos]
 "~/.dotfiles" = { url = "https://github.com/omihirofumi/dotfiles", ref = "main" }
