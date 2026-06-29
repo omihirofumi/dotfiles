@@ -38,7 +38,7 @@
   "lsp": {
     "jdtls": {
       "settings": {
-        "java_home": "/path/to/your/JDK21+",
+        "jdk_auto_download": true,
         "lombok_support": true,
       },
     },
