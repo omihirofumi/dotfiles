@@ -98,7 +98,7 @@ mkdir -p ~/.config
 touch ~/.config/favdirs
 
 if command -v brew >/dev/null 2>&1; then
-  brew install --cask \
+  brew install --cask --force \
     1password \
     deskpad \
     ghostty \
