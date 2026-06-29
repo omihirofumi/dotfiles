@@ -8,8 +8,6 @@ codex = "latest"
 "npm:@angular/language-server" = "latest"
 
 [bootstrap.brew.taps]
-"k1low/tap" = "https://github.com/k1low/homebrew-tap.git"
-"JetBrains/utils" = "https://github.com/JetBrains/homebrew-utils.git"
 
 [bootstrap.packages]
 "brew:fzf" = "latest"
@@ -44,8 +42,6 @@ codex = "latest"
 "brew:typescript-language-server" = "latest"
 "brew:vscode-langservers-extracted" = "latest"
 "brew:typescript" = "latest"
-"brew:k1low/tap/mo" = "latest"
-"brew:JetBrains/utils/kotlin-lsp" = "latest"
 
 [bootstrap.repos]
 "~/.dotfiles" = { url = "https://github.com/omihirofumi/dotfiles", ref = "main" }
@@ -117,6 +113,7 @@ if command -v brew >/dev/null 2>&1; then
     notion \
     rancher \
     zed \
-    dockdoor
+    dockdoor \
+    kotlin-lsp
 fi
 '''
