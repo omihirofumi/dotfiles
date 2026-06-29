@@ -3,3 +3,5 @@
 .claude-code/
 .envrc
 .helix
+
+**/.claude/settings.local.json
