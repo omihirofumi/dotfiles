@@ -2,10 +2,40 @@ theme = "material_oceanic"
 
 
 [editor]
-cursor-shape.normal = "block"
-cursor-shape.insert = "bar"
-cursor-shape.select = "underline"
+scrolloff = 5
+line-number = "relative"
+bufferline = "always"
+clipboard-provider = "pasteboard"
+jump-label-alphabet = "fjdkslarueiwoqpvncmxz"
+trim-trailing-whitespace = true
+color-modes = true
 rainbow-brackets = true
+
+[editor.statusline]
+left = ["mode"]
+center = ["file-name", "file-modification-indicator"]
+right = ["diagnostics", "selections", "position", "file-indent-style", "position-percentage", "total-line-numbers", "file-type"]
+mode.normal = "NORMAL"
+mode.select = "SELECT"
+mode.insert = "INSERT"
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "block"
+
+[editor.soft-wrap]
+enable = true
+
+[editor.indent-guides]
+render = true
+
+[editor.file-picker]
+hidden = false
+git-ignore = false
+
+[editor.lsp]
+snippets = false
 
 [keys.insert]
 "C-[" = "normal_mode"
@@ -14,32 +44,35 @@ rainbow-brackets = true
 "C-e" = "goto_line_end"
 "C-b" = "move_char_left"
 "C-f" = "move_char_right"
+"C-t" = ["indent"]
+"C-d" = ["unindent"]
+"C-c" = ["toggle_comments"]
+"C-o" = ["normal_mode", "open_below"]
 
 [keys.normal]
-C-y = "scroll_up"
+"C-y" = [':sh rm -f /tmp/unique-file', ':insert-output yazi --chooser-file=/tmp/unique-file', ':sh printf "\x1b[?1049h\x1b[?2004h" > /dev/tty', ':open %sh{cat /tmp/unique-file}', ':redraw']
 C-e = "scroll_down"
 D   = "kill_to_line_end"
 x = "extend_line_below"
 X = "extend_line_above"
+"tab" = "flip_selections"
+"C-u" = ["page_cursor_half_up", "align_view_center"]
+"C-k" = ["page_cursor_half_up", "align_view_center"]
+"C-d" = ["page_cursor_half_down", "align_view_center"]
+"C-j" = ["page_cursor_half_down", "align_view_center"]
 space.g.f = ":sh gh browse \"%{buffer_name}\""
 space.g.s = ":sh gh browse \"%{buffer_name}:%{selection_line_start}-%{selection_line_end}\""
 space.g.c = ":sh echo \"%{buffer_name}:%{selection_line_start}-%{selection_line_end}\" | pbcopy"
 space.x = ":pipe-to python3 -c 'import subprocess, sys, urllib.parse; subprocess.run([\"open\", \"naniapp://translate?source=\" + urllib.parse.quote(sys.stdin.read())])'"
+
+[keys.normal."]"]
+"]" = "goto_next_buffer"
+
+[keys.normal."["]
+"[" = "goto_previous_buffer"
 
 [keys.select]
 space.g.f = ":sh gh browse \"%{buffer_name}\""
 space.g.s = ":sh gh browse \"%{buffer_name}:%{selection_line_start}-%{selection_line_end}\""
 space.g.c = ":sh echo \"%{buffer_name}:%{selection_line_start}-%{selection_line_end}\" | pbcopy"
 space.x= ":pipe-to python3 -c 'import subprocess, sys, urllib.parse; subprocess.run([\"open\", \"naniapp://translate?source=\" + urllib.parse.quote(sys.stdin.read())])'"
-
-[editor.indent-guides]
-render = true
-
-[editor.file-picker]
-hidden = false
-
-[editor.soft-wrap]
-enable = true
-
-[editor.lsp]
-snippets = false
