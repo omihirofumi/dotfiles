@@ -83,6 +83,12 @@
           "foreground": "#F77F00",
           "type": "python",
           "style": "plain"
+        },
+        {
+          "template": "| ☸ {{ .Context }}{{ if .Namespace }}:{{ .Namespace }}{{ end }} ",
+          "foreground": "#326CE5",
+          "type": "kubectl",
+          "style": "plain"
         }
       ]
     },
