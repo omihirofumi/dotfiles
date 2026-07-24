@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(claude --version)",
-      "Bash(brew info:*)"
+      "Bash(brew info:*)",
+      "WebSearch"
     ]
   }
 }

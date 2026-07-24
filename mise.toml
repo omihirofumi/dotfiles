@@ -72,6 +72,7 @@ codex = "latest"
 "~/.claude/skills/output-plan-detailed/SKILL.md" = ".claude/skills/output-plan-detailed/SKILL.md"
 "~/.codex/AGENTS.md" = ".config/codex/AGENTS.md"
 "~/.config/zed/settings.json" = { source = ".config/zed/settings.json", mode = "symlink" }
+"~/.config/zellij" = { mode = ".config/zellij" }
 
 [bootstrap.macos.dock]
 autohide = true
