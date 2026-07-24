@@ -29,6 +29,14 @@ keybinds clear-defaults=true {
         bind "," { SwitchToMode "renametab"; TabNameInput 0; }
         // tmux-like: prefix + z for fullscreen toggle
         bind "z" { ToggleFocusFullscreen; SwitchToMode "locked"; }
+        // tmux-like: prefix + s for session manager
+        bind "s" {
+            LaunchOrFocusPlugin "session-manager" {
+                floating true
+                move_to_focused_tab true
+            }
+            SwitchToMode "locked"
+        }
         // tmux-like: prefix + number for tab selection
         bind "1" { GoToTab 1; SwitchToMode "locked"; }
         bind "2" { GoToTab 2; SwitchToMode "locked"; }
@@ -134,6 +142,7 @@ keybinds clear-defaults=true {
         bind "Alt j" { MoveFocus "down"; SwitchToMode "locked"; }
         bind "Alt k" { MoveFocus "up"; SwitchToMode "locked"; }
         bind "Alt l" { MoveFocusOrTab "right"; SwitchToMode "locked"; }
+        bind "q" { ScrollToBottom; SwitchToMode "locked"; }
         bind "s" { SwitchToMode "normal"; }
     }
     search {
@@ -141,6 +150,7 @@ keybinds clear-defaults=true {
         bind "n" { Search "down"; }
         bind "o" { SearchToggleOption "WholeWord"; }
         bind "p" { Search "up"; }
+        bind "q" { ScrollToBottom; SwitchToMode "locked"; }
         bind "w" { SearchToggleOption "Wrap"; }
     }
     session {
@@ -206,7 +216,7 @@ keybinds clear-defaults=true {
     shared_among "normal" "resize" "tab" "scroll" "prompt" "tmux" {
         bind "p" { SwitchToMode "pane"; }
     }
-    shared_among "normal" "resize" "search" "move" "prompt" "tmux" {
+    shared_among "resize" "search" "move" "prompt" "tmux" {
         bind "s" { SwitchToMode "scroll"; }
     }
     shared_except "locked" "resize" "pane" "tab" "entersearch" "renametab" "renamepane" {
