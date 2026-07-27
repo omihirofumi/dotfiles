@@ -27,6 +27,8 @@ keybinds clear-defaults=true {
         bind "[" { SwitchToMode "scroll"; }
         // tmux-like: prefix + , for rename tab
         bind "," { SwitchToMode "renametab"; TabNameInput 0; }
+        // tmux-like: prefix + f for floating panes toggle
+        bind "f" { ToggleFloatingPanes; SwitchToMode "locked"; }
         // tmux-like: prefix + z for fullscreen toggle
         bind "z" { ToggleFocusFullscreen; SwitchToMode "locked"; }
         // tmux-like: prefix + s for session manager
