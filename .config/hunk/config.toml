@@ -1,0 +1,4 @@
+theme = "tokyo-night"
+vsc = "jj"
+prompt_save_view_preferences = true
+watch = true
