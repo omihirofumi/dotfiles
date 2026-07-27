@@ -4,6 +4,7 @@ dotfiles.root = "~/.dotfiles"
 dotfiles.default_mode = "symlink"
 
 [tools]
+claude = "latest"
 codex = "latest"
 "github:ushironoko/octorus" = "latest"
 "npm:@angular/language-server" = "latest"

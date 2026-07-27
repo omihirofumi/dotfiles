@@ -3,7 +3,9 @@
     "allow": [
       "Bash(claude --version)",
       "Bash(brew info:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(hx --version)",
+      "Bash(yazi --help)"
     ]
   }
 }

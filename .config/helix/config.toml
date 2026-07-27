@@ -50,7 +50,8 @@ snippets = false
 "C-o" = ["normal_mode", "open_below"]
 
 [keys.normal]
-"C-y" = [':sh rm -f /tmp/unique-file', ':insert-output yazi --chooser-file=/tmp/unique-file', ':sh printf "\x1b[?1049h\x1b[?2004h" > /dev/tty', ':open %sh{cat /tmp/unique-file}', ':redraw']
+# Start yazi at the current buffer's file (falls back to cwd for scratch buffers)
+"C-y" = [':sh rm -f /tmp/unique-file', ':insert-output yazi %sh{f="%{buffer_name}"; [ -e "$f" ] && echo "$f" || echo .} --chooser-file=/tmp/unique-file', ':sh printf "\x1b[?1049h\x1b[?2004h" > /dev/tty', ':open %sh{cat /tmp/unique-file}', ':redraw']
 C-e = "scroll_down"
 D   = "kill_to_line_end"
 x = "extend_line_below"
