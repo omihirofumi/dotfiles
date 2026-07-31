@@ -74,7 +74,7 @@ codex = "latest"
 "~/.codex/AGENTS.md" = ".config/codex/AGENTS.md"
 "~/.config/zed/settings.json" = { source = ".config/zed/settings.json", mode = "symlink" }
 "~/.config/zellij/config.kdl" = { source = ".config/zellij/config.kdl" }
-"~/.config/hunk/config.toml" = { mode = ".config/hunk/config.toml" }
+"~/.config/hunk/config.toml" = { source = ".config/hunk/config.toml" }
 
 [bootstrap.macos.dock]
 autohide = true
