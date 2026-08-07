@@ -39,6 +39,19 @@ keybinds clear-defaults=true {
             }
             SwitchToMode "locked"
         }
+        // tmux-like: prefix + $ for rename session
+        // zellij has no RenameSession input mode, so prompt in a floating pane
+        // and delegate to the CLI action
+        bind "$" {
+            Run "sh" "-c" "printf '(rename-session) '; read -r n; [ -n \"$n\" ] && zellij action rename-session \"$n\"" {
+                floating true
+                width "60%"
+                height 5
+                close_on_exit true
+                name "rename-session"
+            }
+            SwitchToMode "locked"
+        }
         // tmux-like: prefix + number for tab selection
         bind "1" { GoToTab 1; SwitchToMode "locked"; }
         bind "2" { GoToTab 2; SwitchToMode "locked"; }
