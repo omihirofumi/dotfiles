@@ -252,6 +252,12 @@ if command -v ww >/dev/null 2>&1; then
   eval "$(ww completion zsh)"
 fi
 
+# direnv（home-manager が hook を提供しなくなったので自前で設定する）
+# mise activate より後に hook すること。chpwd で direnv の export を勝たせるため。
+if command -v direnv >/dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+fi
+
 # Per-machine or untracked local overrides.
 if [ -f "$HOME/.zshrc_local" ]; then
   source "$HOME/.zshrc_local"

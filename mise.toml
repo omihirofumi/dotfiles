@@ -47,6 +47,7 @@ codex = "latest"
 "brew:mole" = "latest"
 "brew:yazi" = "latest"
 "brew:tmux" = "latest"
+"brew:direnv" = "latest"
 
 [bootstrap.repos]
 "~/.dotfiles" = { url = "https://github.com/omihirofumi/dotfiles", ref = "main" }
