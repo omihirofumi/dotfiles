@@ -48,6 +48,7 @@ codex = "latest"
 "brew:yazi" = "latest"
 "brew:tmux" = "latest"
 "brew:direnv" = "latest"
+"brew:colima" = "latest"
 
 [bootstrap.repos]
 "~/.dotfiles" = { url = "https://github.com/omihirofumi/dotfiles", ref = "main" }
@@ -76,6 +77,16 @@ codex = "latest"
 "~/.config/zed/settings.json" = { source = ".config/zed/settings.json", mode = "symlink" }
 "~/.config/zellij/config.kdl" = { source = ".config/zellij/config.kdl" }
 "~/.config/hunk/config.toml" = { source = ".config/hunk/config.toml" }
+
+[bootstrap.macos.launchd.agents.colima]
+program = "/opt/homebrew/bin/colima"
+args = ["start", "-f", "--cpu", "4", "--memory", "8"]
+run_at_load = true
+keep_alive = true
+stdout_path = "~/Library/Logs/colima.log"
+stderr_path = "~/Library/Logs/colima.log"
+# colimaはlimactl/sshを子プロセスとして起動するため、launchdの最小PATHでは起動できない
+environment = { PATH = "/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin" }
 
 [bootstrap.macos.dock]
 autohide = true
@@ -125,7 +136,6 @@ if command -v brew >/dev/null 2>&1; then
     jetbrains-toolbox \
     dbeaver-community \
     notion \
-    rancher \
     zed \
     dockdoor \
     kotlin-lsp \
