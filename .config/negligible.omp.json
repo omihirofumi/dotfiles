@@ -34,7 +34,13 @@
         },
         {
           "options": {
-            "fetch_status": true
+            "untracked_modes": {
+              "*": "no"
+            }
+          },
+          "cache": {
+            "duration": "10s",
+            "strategy": "folder"
           },
           "template": ":: {{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }} ",
           "foreground": "#F77F00",
@@ -42,8 +48,9 @@
           "style": "plain"
         },
         {
-          "options": {
-            "fetch_status": true
+          "cache": {
+            "duration": "10s",
+            "strategy": "folder"
           },
           "template": ":: jj\uf1fa{{ .ChangeID }}{{ if .ClosestBookmarks }} {{ index (splitList \" \" .ClosestBookmarks) 0 }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }} ",
           "foreground": "#E76F51",

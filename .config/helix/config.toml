@@ -57,6 +57,8 @@ D   = "kill_to_line_end"
 x = "extend_line_below"
 X = "extend_line_above"
 "tab" = "flip_selections"
+# Overrides the default `q` (replay_macro) to use it as a prefix key
+q.q = ":quit!"
 "C-u" = ["page_cursor_half_up", "align_view_center"]
 "C-k" = ["page_cursor_half_up", "align_view_center"]
 "C-d" = ["page_cursor_half_down", "align_view_center"]

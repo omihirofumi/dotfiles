@@ -38,3 +38,7 @@ args = ["--stdio"]
 [[language]]
 name = "kotlin"
 language-servers = ["kotlin-language-server"]
+
+[[language]]
+name = "json"
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "json" ] }

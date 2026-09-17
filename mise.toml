@@ -3,6 +3,8 @@ experimental = true
 dotfiles.root = "~/.dotfiles"
 dotfiles.default_mode = "symlink"
 idiomatic_version_file_ignore_minimum_versions = true
+# shim 経由だと oh-my-posh が毎プロンプトで jj を呼ぶ際に mise の起動コストが乗るため、対話シェルでは shim を PATH に入れない
+activate_shims = false
 
 [tools]
 claude = "latest"
@@ -51,6 +53,7 @@ codex = "latest"
 "brew:tmux" = "latest"
 "brew:direnv" = "latest"
 "brew:colima" = "latest"
+"brew:deno" = "latest"
 
 [bootstrap.repos]
 "~/.dotfiles" = { url = "https://github.com/omihirofumi/dotfiles", ref = "main" }
