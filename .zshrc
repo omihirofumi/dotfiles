@@ -242,6 +242,14 @@ function Resume {
 zle -N Resume
 bindkey "^Z" Resume
 
+# TUI を zle ウィジェット内で直接起こすと描画が崩れるため、コマンドとして実行させる
+function launch-yazi () {
+  BUFFER="yazi"
+  zle accept-line
+}
+zle -N launch-yazi
+bindkey '^y' launch-yazi
+
 # Rancher Desktop（外部が管理するので存在時のみ）
 if [ -d "$HOME/.rd/bin" ]; then
   export PATH="$HOME/.rd/bin:$PATH"
