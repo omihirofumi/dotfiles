@@ -10,6 +10,8 @@ jump-label-alphabet = "fjdkslarueiwoqpvncmxz"
 trim-trailing-whitespace = true
 color-modes = true
 rainbow-brackets = true
+# zellij はペインからの kitty keyboard protocol 問い合わせに応答せず、Helix が無効と判定して Ctrl-I が Tab と同一視されるため強制有効化する
+kitty-keyboard-protocol = "enabled"
 
 [editor.statusline]
 left = ["mode"]
