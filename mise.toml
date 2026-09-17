@@ -2,11 +2,13 @@
 experimental = true
 dotfiles.root = "~/.dotfiles"
 dotfiles.default_mode = "symlink"
+idiomatic_version_file_ignore_minimum_versions = true
 
 [tools]
 claude = "latest"
 codex = "latest"
 "github:ushironoko/octorus" = "latest"
+"go:golang.org/x/tools/gopls" = "latest"
 "npm:@angular/language-server" = "latest"
 
 [bootstrap.brew.taps]
