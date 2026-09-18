@@ -64,6 +64,12 @@
       "alignment": "right",
       "segments": [
         {
+          "template": "{{ if gt .Jobs 0 }}| \uf013 {{ .Jobs }} {{ end }}",
+          "foreground": "#2EC4B6",
+          "type": "text",
+          "style": "plain"
+        },
+        {
           "template": "| root ",
           "foreground": "#D62828",
           "type": "root",
