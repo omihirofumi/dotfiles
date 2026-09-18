@@ -1,4 +1,5 @@
-# comment rule
-- Write the WHY (the reason behind the implementation)
-- Write the WHAT only when the code's readability is affected, such as when it spans multiple lines
-- Do not write unnecessary comments
+日本語は端的に。絵文字は禁止。
+
+# Important
+- コミットログにはwhy
+- コードコメントにはwhy not (不要なコメントは書かない。コードから読み取れるコメントなど)

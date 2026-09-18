@@ -118,6 +118,39 @@ if command -v jj >/dev/null 2>&1; then
   source <(COMPLETE=zsh jj)
 fi
 
+######## kubectl ########
+if command -v kubectl >/dev/null 2>&1; then
+  alias k="kubectl"
+  alias kg="kubectl get"
+  alias kgp="kubectl get pods"
+  alias kgpa="kubectl get pods -A"
+  alias kgpw="kubectl get pods -w"
+  alias kgs="kubectl get svc"
+  alias kgd="kubectl get deploy"
+  alias kgn="kubectl get nodes"
+  alias kga="kubectl get all"
+  alias kd="kubectl describe"
+  alias kdp="kubectl describe pod"
+  alias kl="kubectl logs"
+  alias klf="kubectl logs -f"
+  alias ke="kubectl exec -it"
+  alias kaf="kubectl apply -f"
+  alias kdel="kubectl delete"
+  alias kdelf="kubectl delete -f"
+  alias kctx="kubectx"
+  # kubens 相当。現在のコンテキストの既定 namespace を切り替える
+  kns() { kubectl config set-context --current --namespace="$1"; }
+
+  # mise shim 経由の completion 生成は毎回 200ms 以上かかるためファイルにキャッシュする
+  _kubectl_comp="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/kubectl_completion.zsh"
+  if [ ! -s "$_kubectl_comp" ]; then
+    mkdir -p "${_kubectl_comp:h}"
+    kubectl completion zsh > "$_kubectl_comp"
+  fi
+  source "$_kubectl_comp"
+  unset _kubectl_comp
+fi
+
 ######## functions ########
 
 # fzf x ghq
