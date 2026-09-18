@@ -11,6 +11,7 @@ claude = "latest"
 codex = "latest"
 "github:ushironoko/octorus" = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
+hunk = "latest"
 "npm:@angular/language-server" = "latest"
 
 [bootstrap.brew.taps]
@@ -126,7 +127,6 @@ if command -v brew >/dev/null 2>&1; then
   # ↑claudeの調査コピペ。真相は不明
   brew tap k1LoW/tap
   brew install k1LoW/tap/mo
-  brew install modem-dev/tap/hunk
 
   brew install --cask --force \
     1password \

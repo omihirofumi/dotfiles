@@ -7,8 +7,10 @@ name = "omihirofumi"
 [ui]
 merge-editor = ":builtin"
 default-command = "log"
-# Use Difftastic by default
-diff-formatter = ["difft", "--color=always", "$left", "$right"]
+# hunk は git 形式の diff を解析して描画するため、diff-formatter も :git に合わせる。
+# difftastic で見たいときは `jj diff --tool difft`
+pager = ["hunk", "pager"]
+diff-formatter = ":git"
 
 [colors]
 change_id = "#ff1525"

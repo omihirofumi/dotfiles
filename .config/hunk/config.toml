@@ -1,6 +1,8 @@
 theme = "tokyo-night"
-vsc = "jj"
+vcs = "jj"
 prompt_save_view_preferences = true
-watch = true
+# jj の pager として使うと stdin 入力になり、再オープンできない watch はエラーになるため無効化。
+# 直接起動して監視したいときは `hunk --watch`
+watch = false
 wrap_lines = true
-mode = "stack"
+mode = "unified"
