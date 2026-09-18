@@ -2,7 +2,10 @@ font-family = JetBrainsMono Nerd Font Mono
 font-feature = -dlig
 
 theme = Kanagawa Dragon
-background-opacity = 0.8
+background-image = ~/.config/ghostty/bg.jpg
+background-image-fit = cover
+# 画像を背景色と混ぜて暗くし、文字のコントラストを確保する
+background-image-opacity = 0.2
 macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
 macos-option-as-alt = true

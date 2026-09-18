@@ -1,0 +1,8 @@
+# 背景画像を見せるため、面を塗る要素の bg を外す。文字色は元から明るめでコメントも埋もれにくいので据え置き
+inherits = "ao"
+
+"ui.background" = {}
+"ui.gutter" = {}
+"ui.statusline" = { fg = "winter_sky" }
+"ui.statusline.inactive" = { fg = "slate_gray" }
+"ui.bufferline.background" = {}
