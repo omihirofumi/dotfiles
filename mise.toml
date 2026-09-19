@@ -84,6 +84,7 @@ hunk = "latest"
 "~/.config/zed/settings.json" = { source = ".config/zed/settings.json", mode = "symlink" }
 "~/.config/zellij/config.kdl" = { source = ".config/zellij/config.kdl" }
 "~/.config/hunk/config.toml" = { source = ".config/hunk/config.toml" }
+"~/.grok/config.toml" = ".config/grok/config.toml"
 
 [bootstrap.macos.launchd.agents.colima]
 program = "/opt/homebrew/bin/colima"
