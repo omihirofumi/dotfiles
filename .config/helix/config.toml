@@ -53,7 +53,18 @@ snippets = false
 
 [keys.normal]
 # Start yazi at the current buffer's file (falls back to cwd for scratch buffers)
-"C-y" = [':sh rm -f /tmp/unique-file', ':insert-output yazi %sh{f="%{buffer_name}"; [ -e "$f" ] && echo "$f" || echo .} --chooser-file=/tmp/unique-file', ':sh printf "\x1b[?1049h\x1b[?2004h" > /dev/tty', ':open %sh{cat /tmp/unique-file}', ':redraw']
+# yazi は Helix の alt screen の中で起動せず、Helix 自身の restore/claim と同じ順序で
+# kitty keyboard を pop して alt screen を抜けてから起動する。zellij 0.45 はネストした
+# ?1049h で現在の kitty 状態を main 画面側に保存してしまい、Helix を抜けた後の
+# シェルに CSI u が流れ続けるため。
+"C-y" = [
+  ':sh rm -f /tmp/unique-file',
+  ':sh printf "\x1b[<u\x1b[?1049l" > /dev/tty',
+  ':insert-output yazi %sh{f="%{buffer_name}"; [ -e "$f" ] && echo "$f" || echo .} --chooser-file=/tmp/unique-file',
+  ':sh printf "\x1b[?1049h\x1b[?2004h\x1b[>5u" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+]
 C-e = "scroll_down"
 D   = "kill_to_line_end"
 x = "extend_line_below"
