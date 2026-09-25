@@ -76,6 +76,7 @@ q.q = ":quit!"
 "C-k" = ["page_cursor_half_up", "align_view_center"]
 "C-d" = ["page_cursor_half_down", "align_view_center"]
 "C-j" = ["page_cursor_half_down", "align_view_center"]
+space.g.g = "changed_file_picker"
 space.g.f = ":sh gh browse \"%{buffer_name}\""
 space.g.s = ":sh gh browse \"%{buffer_name}:%{selection_line_start}-%{selection_line_end}\""
 space.g.c = ":sh echo \"%{buffer_name}:%{selection_line_start}-%{selection_line_end}\" | pbcopy"
@@ -88,6 +89,7 @@ space.x = ":pipe-to python3 -c 'import subprocess, sys, urllib.parse; subprocess
 "[" = "goto_previous_buffer"
 
 [keys.select]
+space.g.g = "changed_file_picker"
 space.g.f = ":sh gh browse \"%{buffer_name}\""
 space.g.s = ":sh gh browse \"%{buffer_name}:%{selection_line_start}-%{selection_line_end}\""
 space.g.c = ":sh echo \"%{buffer_name}:%{selection_line_start}-%{selection_line_end}\" | pbcopy"
