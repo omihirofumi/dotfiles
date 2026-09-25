@@ -7,10 +7,19 @@ name = "omihirofumi"
 [ui]
 merge-editor = ":builtin"
 default-command = "log"
+# hunk はフルスクリーン TUI で、less -F のように「画面に収まれば素通し」ができず終了時に出力も消えるため、
+# 基本は pager なしにして diff 系コマンドだけ hunk を使う
+paginate = "never"
 # hunk は git 形式の diff を解析して描画するため、diff-formatter も :git に合わせる。
 # difftastic で見たいときは `jj diff --tool difft`
-pager = ["hunk", "pager"]
 diff-formatter = ":git"
+
+[[--scope]]
+--when.commands = ["diff", "show", "interdiff"]
+[--scope.ui]
+paginate = "auto"
+# jj の diff のパスはワークスペースルート基準なので、サブディレクトリから起動しても hunk の e でファイルを開けるようルートへ移動してから起動する
+pager = ["sh", "-c", "cd \"$(jj root --ignore-working-copy 2>/dev/null || pwd)\" && exec hunk pager"]
 
 [colors]
 change_id = "#ff1525"
