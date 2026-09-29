@@ -45,5 +45,6 @@ formatter = { command = 'deno', args = ["fmt", "-", "--ext", "json" ] }
 
 [[language]]
 name = "go"
+language-servers = ["gopls"]
 auto-format = true
 formatter = { command = "goimports" }
