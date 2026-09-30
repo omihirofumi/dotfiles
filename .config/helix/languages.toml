@@ -38,6 +38,8 @@ args = ["--stdio"]
 [[language]]
 name = "kotlin"
 language-servers = ["kotlin-language-server"]
+# Maven projects have no settings.gradle, so helix would fall back to the git root
+roots = ["pom.xml", "settings.gradle.kts", "settings.gradle"]
 
 [[language]]
 name = "json"
