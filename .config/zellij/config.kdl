@@ -147,6 +147,9 @@ keybinds clear-defaults=true {
         bind "tab" { MovePane; }
     }
     scroll {
+        // locked に戻すと prefix 後のキーがペインに書き込まれ ClearScroll が走るため normal へ
+        bind "Ctrl j" { SwitchToMode "normal"; }
+        bind "Ctrl q" { Quit; }
         bind "Alt left" { MoveFocusOrTab "left"; SwitchToMode "locked"; }
         bind "Alt down" { MoveFocus "down"; SwitchToMode "locked"; }
         bind "Alt up" { MoveFocus "up"; SwitchToMode "locked"; }
@@ -209,7 +212,7 @@ keybinds clear-defaults=true {
     }
     shared_among "normal" "locked" {
     }
-    shared_except "locked" "renametab" "renamepane" {
+    shared_except "locked" "scroll" "renametab" "renamepane" {
         bind "Ctrl j" { SwitchToMode "locked"; }
         bind "Ctrl q" { Quit; }
     }
