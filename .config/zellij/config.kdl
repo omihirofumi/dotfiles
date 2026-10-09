@@ -38,6 +38,15 @@ keybinds clear-defaults=true {
             }
             SwitchToMode "locked"
         }
+        // リポジトリの __ignored/prompts.md に AI 用プロンプトの下書きを追記
+        bind "P" {
+            Run "prompt-note" {
+                floating true
+                close_on_exit true
+                name "prompt"
+            }
+            SwitchToMode "locked"
+        }
         // tmux-like: prefix + z for fullscreen toggle
         bind "z" { ToggleFocusFullscreen; SwitchToMode "locked"; }
         // tmux-like: prefix + s for session manager

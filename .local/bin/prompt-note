@@ -1,0 +1,13 @@
+#!/bin/sh
+set -eu
+
+# zsh の promptinit が `prompt` 関数を定義するため、衝突しない名前にしている
+if root=$(git rev-parse --show-toplevel 2>/dev/null || jj root 2>/dev/null); then
+  file="$root/__ignored/prompts.md"
+else
+  file="$HOME/journal/prompts.md"
+fi
+mkdir -p "$(dirname "$file")"
+touch "$file"
+
+exec hx "$file:$(($(wc -l <"$file") + 1))"
