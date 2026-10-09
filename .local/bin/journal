@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+
+# Zed の journal.path 既定値と揃え、Zed からも同じノートを開けるようにする
+file="$HOME/journal/$(date +%Y/%m/%d).md"
+mkdir -p "$(dirname "$file")"
+
+[ -s "$file" ] && printf '\n' >>"$file"
+# Zed の 12 時間表記 (# 10:14 AM) に合わせる。LC_ALL=ja_JP だと LC_TIME では「午前」になるため LC_ALL で上書き
+printf '# %s\n\n' "$(LC_ALL=C date '+%-I:%M %p')" >>"$file"
+
+exec hx "$file:$(wc -l <"$file" | tr -d ' ')"

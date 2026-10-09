@@ -29,6 +29,15 @@ keybinds clear-defaults=true {
         bind "," { SwitchToMode "renametab"; TabNameInput 0; }
         // tmux-like: prefix + f for floating panes toggle
         bind "f" { ToggleFloatingPanes; SwitchToMode "locked"; }
+        // Zed の journal 相当: その日のノートをフローティングで開く
+        bind "J" {
+            Run "journal" {
+                floating true
+                close_on_exit true
+                name "journal"
+            }
+            SwitchToMode "locked"
+        }
         // tmux-like: prefix + z for fullscreen toggle
         bind "z" { ToggleFocusFullscreen; SwitchToMode "locked"; }
         // tmux-like: prefix + s for session manager
