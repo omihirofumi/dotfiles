@@ -53,13 +53,13 @@ snippets = false
 
 [keys.normal]
 # Start yazi at the current buffer's file (falls back to cwd for scratch buffers)
-# yazi は Helix の alt screen の中で起動せず、Helix 自身の restore/claim と同じ順序で
-# kitty keyboard を pop して alt screen を抜けてから起動する。zellij 0.45 はネストした
-# ?1049h で現在の kitty 状態を main 画面側に保存してしまい、Helix を抜けた後の
-# シェルに CSI u が流れ続けるため。
+# yazi 起動前に kitty keyboard を pop する。zellij 0.45 はネストした ?1049h で現在の
+# kitty 状態を main 画面側に保存してしまい、Helix を抜けた後のシェルに CSI u が
+# 流れ続けるため。保存されるのは kitty 状態だけなので alt screen は抜けない
+# (抜けると起動時に一瞬シェルが見える)。
 "C-y" = [
   ':sh rm -f /tmp/unique-file',
-  ':sh printf "\x1b[<u\x1b[?1049l" > /dev/tty',
+  ':sh printf "\x1b[<u" > /dev/tty',
   ':insert-output yazi %sh{f="%{buffer_name}"; [ -e "$f" ] && echo "$f" || echo .} --chooser-file=/tmp/unique-file',
   ':sh printf "\x1b[?1049h\x1b[?2004h\x1b[>5u" > /dev/tty',
   ':open %sh{cat /tmp/unique-file}',
@@ -81,6 +81,13 @@ space.g.f = ":sh cd \"$(dirname \"%{file_path_absolute}\")\" && gh browse \"$(ba
 space.g.s = ":sh cd \"$(dirname \"%{file_path_absolute}\")\" && gh browse \"$(basename \"%{file_path_absolute}\"):%{selection_line_start}-%{selection_line_end}\""
 space.g.c = ":sh echo \"%{buffer_name}:%{selection_line_start}-%{selection_line_end}\" | pbcopy"
 space.g.y = ":sh printf \"%%s\" \"%{buffer_name}\" | pbcopy"
+# :sh は非同期で tig の終了を待たずに画面復帰が走るため、同期実行の :insert-output を使う。
+# 出力はすべて /dev/tty に流してバッファに何も挿入されないようにしている。
+# 起動前に kitty keyboard を pop する理由は C-y と同じ。
+space.g.b = [
+  ':insert-output cd "$(dirname "%{file_path_absolute}")"; printf "\x1b[<u" > /dev/tty; tig blame +%{cursor_line} "$(basename "%{file_path_absolute}")" < /dev/tty > /dev/tty 2>&1; printf "\x1b[?1049h\x1b[?2004h\x1b[>5u" > /dev/tty',
+  ':redraw',
+]
 space.x = ":pipe-to python3 -c 'import subprocess, sys, urllib.parse; subprocess.run([\"open\", \"naniapp://translate?source=\" + urllib.parse.quote(sys.stdin.read())])'"
 
 [keys.normal."]"]
@@ -95,4 +102,8 @@ space.g.f = ":sh cd \"$(dirname \"%{file_path_absolute}\")\" && gh browse \"$(ba
 space.g.s = ":sh cd \"$(dirname \"%{file_path_absolute}\")\" && gh browse \"$(basename \"%{file_path_absolute}\"):%{selection_line_start}-%{selection_line_end}\""
 space.g.c = ":sh echo \"%{buffer_name}:%{selection_line_start}-%{selection_line_end}\" | pbcopy"
 space.g.y = ":sh printf \"%%s\" \"%{buffer_name}\" | pbcopy"
+space.g.b = [
+  ':insert-output cd "$(dirname "%{file_path_absolute}")"; printf "\x1b[<u" > /dev/tty; tig blame +%{cursor_line} "$(basename "%{file_path_absolute}")" < /dev/tty > /dev/tty 2>&1; printf "\x1b[?1049h\x1b[?2004h\x1b[>5u" > /dev/tty',
+  ':redraw',
+]
 space.x= ":pipe-to python3 -c 'import subprocess, sys, urllib.parse; subprocess.run([\"open\", \"naniapp://translate?source=\" + urllib.parse.quote(sys.stdin.read())])'"
