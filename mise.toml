@@ -15,6 +15,7 @@ go = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
 hunk = "latest"
 "npm:@angular/language-server" = "latest"
+pnpm = "latest"
 
 [bootstrap.brew.taps]
 

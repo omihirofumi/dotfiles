@@ -12,13 +12,27 @@ required-root-patterns = ["angular.json", "project.json"]
 
 file-types = ["ts", "typescript", "html"]
 
-[language-server.typescript-language-server]
-command = "hx-typescript-language-server-global"
+# TS 7 dropped tsserver.js, so typescript-language-server cannot start; tsc itself serves LSP instead
+[language-server.tsgo]
+command = "tsc"
+args = ["--lsp", "--stdio"]
 required-root-patterns = ["package.json", "tsconfig.json", "jsconfig.json"]
 
 [[language]]
 name = "typescript"
-language-servers = ["angular-ls", "typescript-language-server"]
+language-servers = ["angular-ls", "tsgo"]
+
+[[language]]
+name = "tsx"
+language-servers = ["tsgo"]
+
+[[language]]
+name = "javascript"
+language-servers = ["tsgo"]
+
+[[language]]
+name = "jsx"
+language-servers = ["tsgo"]
 
 [[language]]
 name = "html"
