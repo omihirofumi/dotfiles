@@ -1,0 +1,5 @@
+#!/bin/zsh -l
+dir=$(zoxide query -l | fzf --prompt 'project> ')
+if [ -z "$dir" ]; then exec zsh -l; fi   # Esc なら普通のシェル
+name=$(basename "$dir" | tr . _)
+cd "$dir" && exec zellij attach -c "$name"

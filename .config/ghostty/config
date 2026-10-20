@@ -10,6 +10,8 @@ macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
 macos-option-as-alt = true
 
+# 新しいタブ/ウィンドウでプロジェクトを選び、その zellij セッションに入る
+command = ~/.local/bin/zj-open
 
 # keymaps
 keybind = global:cmd+`=toggle_quick_terminal

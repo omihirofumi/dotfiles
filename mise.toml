@@ -21,6 +21,7 @@ pnpm = "latest"
 
 [bootstrap.packages]
 "brew:fzf" = "latest"
+"brew:zoxide" = "latest"
 "brew:zinit" = "latest"
 "brew:oh-my-posh" = "latest"
 "brew:git" = "latest"
