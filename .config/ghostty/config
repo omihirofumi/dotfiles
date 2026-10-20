@@ -19,6 +19,8 @@ keybind = shift+ctrl+,=move_tab:-1
 keybind = shift+ctrl+.=move_tab:+1
 keybind = shift+enter=text:\x1b\r
 keybind = cmd+enter=ignore
+# zellij 上で Cmd+C が c として入力されるのを防ぐ
+keybind = super+c=copy_to_clipboard
 # keybind = ctrl+j=ignore
 # 分割ペイン移動
 keybind = cmd+h=goto_split:left
