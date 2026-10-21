@@ -140,6 +140,7 @@ if command -v brew >/dev/null 2>&1; then
 
   brew install --cask --force \
     1password \
+    1password-cli \
     deskpad \
     ghostty \
     homerow \
