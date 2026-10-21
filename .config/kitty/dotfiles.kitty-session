@@ -1,0 +1,4 @@
+# dotfiles の作業場。仕事のパスを含まないので、手元の kitty-sessions ではなく dotfiles に置く
+new_tab dotfiles
+cd ~/.dotfiles
+launch
