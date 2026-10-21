@@ -14,6 +14,8 @@ default-root-container-layout = 'tiles'
 default-root-container-orientation = 'auto'
 
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+# サブには floating を何枚も重ねるので、alt-shift-o で戻る先として最後に見ていたものを覚えておく
+on-focus-changed = ['exec-and-forget ~/.local/bin/aerospace-sub record']
 
 persistent-workspaces = ["1", "2", "3", "4", "5"]
 
@@ -41,7 +43,8 @@ alt-shift-h = 'focus --ignore-floating left'
 alt-shift-j = 'focus --ignore-floating down'
 alt-shift-k = 'focus --ignore-floating up'
 alt-shift-l = 'focus --ignore-floating right'
-alt-shift-o = 'exec-and-forget ~/.local/bin/aerospace-sub-toggle'
+alt-shift-o = 'exec-and-forget ~/.local/bin/aerospace-sub toggle'
+alt-shift-i = 'exec-and-forget ~/.local/bin/aerospace-sub cycle'
 
 ctrl-alt-shift-h = 'move left'
 ctrl-alt-shift-j = 'move down'
