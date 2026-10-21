@@ -1,0 +1,33 @@
+#!/bin/zsh -l
+# kitty のセッションをプロジェクトとして選び、そのタブ群に切り替える (zellij 用の zj-open の kitty 版)
+#   kt-open           Ctrl j s の overlay から。終われば overlay が閉じる
+#   kt-open --startup kitty 起動時の最初のタブから。選べばこのタブは閉じ、Esc なら普通のシェルとして残す
+# セッションファイルは仕事のパスを含むので、公開している dotfiles ではなく手元に置く
+sessions=~/.local/share/kitty-sessions
+cache=~/.cache/kitty-sessions
+mkdir -p $sessions $cache
+
+# 起動時のタブはどのセッションにも属さずタブバーに残るので、選び終えたら終了して閉じる
+fallback() {
+  [[ $1 == --startup ]] && exec zsh -l
+  exit
+}
+
+pick=$({ print -l $sessions/*.kitty-session(N:t:r) | sed 's/^/session:/'; zoxide query -l; } | fzf --prompt 'project> ')
+[ -z "$pick" ] && fallback "$1"
+
+if [[ $pick == session:* ]]; then
+  file=$sessions/${pick#session:}.kitty-session
+else
+  name=$(basename "$pick" | tr . _)
+  file=$cache/$name.kitty-session
+  # zoxide のディレクトリにはセッションファイルが無いので、1 タブだけのものをその場で作る
+  printf 'new_tab %s\ncd %s\nlaunch\n' "$name" "$pick" > $file
+fi
+
+# overlay は終了するとすぐ閉じるので、失敗したときはエラーを読めるよう待つ
+if ! kitten @ action goto_session "$file"; then
+  echo 'kitten @ に失敗。kitty を再起動して listen_on を読み込ませる'
+  read -r
+  fallback "$1"
+fi

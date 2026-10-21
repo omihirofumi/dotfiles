@@ -1,0 +1,2 @@
+# kitty 起動時の最初のタブでプロジェクトを選ばせる。Ghostty で新しいタブを開くと zj-open が出ていた代わり
+launch /bin/zsh -c "kt-open --startup"
