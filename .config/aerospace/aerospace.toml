@@ -20,13 +20,13 @@ persistent-workspaces = ["1", "2", "3", "4", "5"]
 key-mapping.preset = 'qwerty'
 
 # borders の枠はウィンドウの外側に描かれ、0 だと画面外や隣のウィンドウの下に隠れるので枠が見える程度に空ける
-gaps.inner.horizontal = 5
-gaps.inner.vertical = 5
-gaps.outer.left = 5
-gaps.outer.bottom = 5
-gaps.outer.top = 5
+gaps.inner.horizontal = 3
+gaps.inner.vertical = 3
+gaps.outer.left = 3
+gaps.outer.bottom = 3
+gaps.outer.top = 3
 # 49インチでは右 1/3 (5120 / 3) を空けてサブ領域にする。ノートやモバイルモニターには効かせたくないので枠用の隙間だけにフォールバック
-gaps.outer.right = [{ monitor.'LG HDR DQHD' = 1707 }, 5]
+gaps.outer.right = [{ monitor.'LG HDR DQHD' = 1707 }, 3]
 
 # alt 単体は zellij の Alt h/j/k/l、ctrl-alt は Magnet が使っているため、alt-shift を主修飾キーにする
 [mode.main.binding]
