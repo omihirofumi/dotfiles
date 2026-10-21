@@ -77,6 +77,7 @@ pnpm = "latest"
 "~/.config/karabiner" = ".config/karabiner"
 "~/.config/ghostty" = ".config/ghostty"
 "~/.config/aerospace/aerospace.toml" = ".config/aerospace/aerospace.toml"
+"~/.config/borders" = ".config/borders"
 "~/.config/helix/config.toml" = ".config/helix/config.toml"
 "~/.config/helix/languages.toml" = ".config/helix/languages.toml"
 "~/.config/helix/themes" = ".config/helix/themes"
@@ -134,6 +135,8 @@ if command -v brew >/dev/null 2>&1; then
   # ↑claudeの調査コピペ。真相は不明
   brew tap k1LoW/tap
   brew install k1LoW/tap/mo
+  brew install FelixKratz/formulae/borders
+  brew services start borders
 
   brew install --cask --force \
     1password \
