@@ -10,10 +10,11 @@ keybinds clear-defaults=true {
     }
     normal {
         // tmux-like: prefix + h/j/k/l for pane navigation
-        bind "h" { MoveFocus "left"; SwitchToMode "locked"; }
+        // MoveFocus は端で止まるので、h/l は端で折り返す巡回にする（横並びならほぼ左右移動と同じ）
+        bind "h" { FocusPreviousPane; SwitchToMode "locked"; }
         bind "j" { MoveFocus "down"; SwitchToMode "locked"; }
         bind "k" { MoveFocus "up"; SwitchToMode "locked"; }
-        bind "l" { MoveFocus "right"; SwitchToMode "locked"; }
+        bind "l" { FocusNextPane; SwitchToMode "locked"; }
         // tmux-like: prefix + ; for last pane
         bind ";" { FocusLastPane; SwitchToMode "locked"; }
         // tmux-like: prefix + % / " for splits
