@@ -76,6 +76,7 @@ pnpm = "latest"
 "~/.local/bin" = { source = ".local/bin", mode = "symlink-each" }
 "~/.config/karabiner" = ".config/karabiner"
 "~/.config/ghostty" = ".config/ghostty"
+"~/.config/kitty" = ".config/kitty"
 "~/.config/aerospace/aerospace.toml" = ".config/aerospace/aerospace.toml"
 "~/.config/borders" = ".config/borders"
 "~/.config/helix/config.toml" = ".config/helix/config.toml"
@@ -143,6 +144,7 @@ if command -v brew >/dev/null 2>&1; then
     1password-cli \
     deskpad \
     ghostty \
+    kitty \
     homerow \
     linear-linear \
     raindropio \

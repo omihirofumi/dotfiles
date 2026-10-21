@@ -80,10 +80,14 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
-# メインのタイルは作業用の4つだけにし、それ以外は右 1/3 のサブに逃がす
+# メインのタイルは作業用のアプリだけにし、それ以外は右 1/3 のサブに逃がす
 # 除外リストではなく許可リストにしているのは、新しく入れたアプリがメインを割らないようにするため
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
+run = 'layout tiling'
+
+[[on-window-detected]]
+if.app-id = 'net.kovidgoyal.kitty'
 run = 'layout tiling'
 
 [[on-window-detected]]
