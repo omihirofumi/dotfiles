@@ -26,6 +26,7 @@ setopt SHARE_HISTORY
 alias g="git"
 alias lgit="lazygit"
 alias lg="lazygit"
+alias hxp="prompt-note"
 alias cat="bat"
 alias ls="eza -l"
 alias la="eza -la"
