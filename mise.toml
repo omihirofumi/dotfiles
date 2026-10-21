@@ -65,6 +65,7 @@ pnpm = "latest"
 
 [dotfiles]
 "~/.config/mise/config.toml" = "mise.toml"
+"~/.zshenv" = ".zshenv"
 "~/.zshrc" = ".zshrc"
 "~/.gitconfig" = ".gitconfig"
 "~/.config/git/ignore" = ".config/git/ignore"
