@@ -75,6 +75,7 @@ pnpm = "latest"
 "~/.local/bin" = { source = ".local/bin", mode = "symlink-each" }
 "~/.config/karabiner" = ".config/karabiner"
 "~/.config/ghostty" = ".config/ghostty"
+"~/.config/aerospace/aerospace.toml" = ".config/aerospace/aerospace.toml"
 "~/.config/helix/config.toml" = ".config/helix/config.toml"
 "~/.config/helix/languages.toml" = ".config/helix/languages.toml"
 "~/.config/helix/themes" = ".config/helix/themes"
@@ -150,6 +151,7 @@ if command -v brew >/dev/null 2>&1; then
     zed \
     dockdoor \
     kotlin-lsp \
+    nikitabobko/tap/aerospace \
     font-jetbrains-mono-nerd-font
 fi
 '''
