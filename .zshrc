@@ -30,6 +30,7 @@ alias la="eza -la"
 alias ll="eza -la"
 
 ######## prompt / helpers ########
+# .zshenv でも足しているが、ログインシェルでは後から /etc/zprofile の path_helper が /usr/bin を前に戻すので、ここでもう一度 Homebrew を先頭にする
 if [ -x /opt/homebrew/bin/brew ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
