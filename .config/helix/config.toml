@@ -70,6 +70,8 @@ D   = "kill_to_line_end"
 x = "extend_line_below"
 X = "extend_line_above"
 "tab" = "flip_selections"
+# default-yank-register = "+" だと d/c でもクリップボードが上書きされるため、y だけ両方に入れる
+y = ["yank", "yank_to_clipboard"]
 # Overrides the default `q` (replay_macro) to use it as a prefix key
 q.q = ":quit!"
 "C-u" = ["page_cursor_half_up", "align_view_center"]
@@ -97,6 +99,7 @@ space.x = ":pipe-to python3 -c 'import subprocess, sys, urllib.parse; subprocess
 "[" = "goto_previous_buffer"
 
 [keys.select]
+y = ["yank", "yank_to_clipboard"]
 space.g.g = "changed_file_picker"
 space.g.f = ":sh cd \"$(dirname \"%{file_path_absolute}\")\" && gh browse \"$(basename \"%{file_path_absolute}\")\""
 space.g.s = ":sh cd \"$(dirname \"%{file_path_absolute}\")\" && gh browse \"$(basename \"%{file_path_absolute}\"):%{selection_line_start}-%{selection_line_end}\""
