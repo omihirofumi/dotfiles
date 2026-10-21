@@ -1,6 +1,6 @@
 #!/bin/zsh -l
 # kitty のセッションをプロジェクトとして選び、そのタブ群に切り替える (zellij 用の zj-open の kitty 版)
-#   kt-open           Ctrl j s の overlay から。終われば overlay が閉じる
+#   kt-open           Ctrl j s の一時タブから。終わればタブが閉じる
 #   kt-open --startup kitty 起動時の最初のタブから。選べばこのタブは閉じ、Esc なら普通のシェルとして残す
 # セッションファイルは仕事のパスを含むので、公開している dotfiles ではなく手元に置く
 sessions=~/.local/share/kitty-sessions
@@ -13,7 +13,22 @@ fallback() {
   exit
 }
 
-pick=$({ print -l $sessions/*.kitty-session(N:t:r) | sed 's/^/session:/'; zoxide query -l; } | fzf --prompt 'project> ')
+# セッションには番号を振り、数字キー 1 打で開けるようにする。表示と戻り値はタブで分ける
+names=($sessions/*.kitty-session(N:t:r))
+lines=() binds=()
+# {1..0} は 1 0 に展開されるので、セッションが無いときに回らない書き方にする
+for (( i = 1; i <= $#names; i++ )); do
+  lines+="$i ${names[i]}"$'\t'"session:${names[i]}"
+  # pos(n) は絞り込み後の n 番目を指し表示番号とずれるので、番号ごとに戻り値を直接埋め込む
+  (( i <= 9 )) && binds+="$i:become(echo session:${names[i]})"
+done
+for dir in ${(f)"$(zoxide query -l)"}; do
+  lines+="  ${dir/#$HOME/~}"$'\t'"$dir"
+done
+# 空の --bind は fzf がエラーで落ちるため、割り当てがあるときだけ渡す
+opts=(--prompt 'project> ' --delimiter '\t' --with-nth 1 --accept-nth 2)
+(( $#binds )) && opts+=(--bind "${(j:,:)binds}")
+pick=$(print -rl -- $lines | fzf $opts)
 [ -z "$pick" ] && fallback "$1"
 
 if [[ $pick == session:* ]]; then
