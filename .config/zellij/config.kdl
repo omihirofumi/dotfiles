@@ -5,6 +5,8 @@
 keybinds clear-defaults=true {
     locked {
         bind "Ctrl j" { SwitchToMode "normal"; }
+        // zellij サーバーは起動時の PATH を持ち続けるので、.zshenv を読む zsh 経由にして再起動なしで ~/.local/bin を引けるようにする
+        bind "Alt p" { Run "zsh" "-c" "zj-pane" { floating true; close_on_exit true; }; }
     }
     normal {
         // tmux-like: prefix + h/j/k/l for pane navigation
@@ -12,6 +14,8 @@ keybinds clear-defaults=true {
         bind "j" { MoveFocus "down"; SwitchToMode "locked"; }
         bind "k" { MoveFocus "up"; SwitchToMode "locked"; }
         bind "l" { MoveFocus "right"; SwitchToMode "locked"; }
+        // tmux-like: prefix + ; for last pane
+        bind ";" { FocusLastPane; SwitchToMode "locked"; }
         // tmux-like: prefix + % / " for splits
         bind "%" { NewPane "right"; SwitchToMode "locked"; }
         bind "\"" { NewPane "down"; SwitchToMode "locked"; }

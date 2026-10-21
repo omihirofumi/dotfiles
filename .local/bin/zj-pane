@@ -1,0 +1,23 @@
+#!/bin/zsh
+# zellij の Run から popup で起動する前提なので、起動を遅くする -l は付けず PATH は zellij から継承する
+panes=$(zellij action list-panes -a -j |
+  jq -r --argjson self "$ZELLIJ_PANE_ID" '
+    (map(select((.is_plugin | not) and .id == $self))[0].tab_id) as $tab
+    | [.[] | select((.is_plugin | not) and (.exited | not) and .id != $self and .tab_id == $tab)]
+    | to_entries[]
+    | [.value.id, .key + 1, (.value.pane_command // ""),
+       ((.value.pane_cwd // "") | sub("^" + env.HOME; "~")), .value.title]
+    | @tsv')
+# 空の --bind は fzf がエラーで落ちるため、移動先が無ければ何もしない
+[ -z "$panes" ] && exit
+
+# pos(n) は絞り込み後の n 番目を指し表示番号とずれるので、番号ごとに pane ID を直接埋め込む
+binds=()
+for line in ${(f)panes}; do
+  fields=(${(ps:\t:)line})
+  (( fields[2] <= 9 )) && binds+="${fields[2]}:become(zellij action focus-pane-id terminal_${fields[1]})"
+done
+
+pick=$(print -r -- "$panes" |
+  fzf --delimiter '\t' --with-nth 2.. --prompt 'pane> ' --bind "${(j:,:)binds}")
+[ -n "$pick" ] && zellij action focus-pane-id "terminal_${pick%%$'\t'*}"
