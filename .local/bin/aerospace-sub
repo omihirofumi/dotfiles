@@ -36,8 +36,21 @@ focus_last() {
 
 case $1 in
   record)
+    id=$(focused id)
+    [ -n "$id" ] || exit 0
     mkdir -p "$state"
-    focused id > "$state/$(side)-last"
+    prev=$(cat "$state/prev" 2>/dev/null)
+    echo "$id" > "$state/prev"
+    # サブを閉じると AeroSpace は最後に見ていたメインではなく accordion の別のウィンドウを選ぶことがある
+    # 閉じたときのフックは無いので、閉じた直後のフォーカス変化で検知して戻す
+    if [ "$(side)" = main ] && [ -n "$prev" ] && [ "$prev" = "$(cat "$state/sub-last" 2>/dev/null)" ] &&
+      ! aerospace list-windows --all --format '%{window-id}' | grep -qx "$prev"; then
+      main=$(cat "$state/main-last" 2>/dev/null)
+      if [ -n "$main" ] && [ "$main" != "$id" ] && windows main | grep -qx "$main"; then
+        exec aerospace focus --window-id "$main"
+      fi
+    fi
+    echo "$id" > "$state/$(side)-last"
     ;;
   toggle)
     [ "$(side)" = sub ] && focus_last main || focus_last sub
