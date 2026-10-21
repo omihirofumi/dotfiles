@@ -1,5 +1,14 @@
 #!/bin/zsh -l
-dir=$(zoxide query -l | fzf --prompt 'project> ')
-if [ -z "$dir" ]; then exec zsh -l; fi   # Esc なら普通のシェル
-name=$(basename "$dir" | tr . _)
-cd "$dir" && exec zellij attach -c "$name"
+layouts=~/.config/zellij/layouts
+pick=$({ print -l $layouts/*.kdl(N:t:r) | sed 's/^/layout:/'; zoxide query -l; } | fzf --prompt 'project> ')
+if [ -z "$pick" ]; then exec zsh -l; fi   # Esc なら普通のシェル
+
+if [[ $pick == layout:* ]]; then
+  name=${pick#layout:}
+  # attach -c はレイアウトを受け取れないので、作成と接続を分ける
+  if zellij ls -n -s | grep -qx "$name"; then exec zellij attach "$name"; fi
+  exec zellij -s "$name" -n "$name"
+fi
+
+name=$(basename "$pick" | tr . _)
+cd "$pick" && exec zellij attach -c "$name"
