@@ -1,4 +1,4 @@
-# kt-open などのスクリプトからも Homebrew のコマンドが見えるようにする。~/.zprofile に頼ると、dotfiles の管理外なので Mac ごとに差が出る
+# kt-open などのスクリプトからも Homebrew のコマンドが見えるようにする。~/.zprofile に頼ると、dotfiles の管理外なので Mac ごとに差が出る!
 if [ -x /opt/homebrew/bin/brew ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
