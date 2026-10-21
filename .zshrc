@@ -7,7 +7,6 @@ export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 export EDITOR=hx
-export HELIX_RUNTIME=$HOME/ghq/github.com/helix-editor/helix/runtime
 export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
 export MISE_EXPERIMENTAL=1
 export GROK_TERMINAL_THEME=1
