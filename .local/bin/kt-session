@@ -1,0 +1,32 @@
+#!/bin/zsh
+# kitty のセッションを fzf で選んで切り替える。標準の goto_session の一覧は文字で絞り込めない
+#   kt-session           ~/.local/share/kitty-sessions のセッションから
+#   kt-session --active  開いているセッションから
+sessions=~/.local/share/kitty-sessions
+
+if [[ $1 == --active ]]; then
+  # 開いているセッションはファイルの置き場所がまちまちなので、ファイルではなく kitty から名前を集める
+  names=(${(f)"$(kitten @ ls | jq -r '[.[].tabs[].windows[].session_name | select(. != "")] | unique[]')"})
+else
+  names=($sessions/*.kitty-session(N:t:r))
+fi
+(( $#names )) || exit
+
+# 並びを名前順に固定して番号を振り、数字キー 1 打でも選べるようにする
+lines=() binds=()
+for (( i = 1; i <= $#names; i++ )); do
+  lines+="$i ${names[i]}"$'\t'"${names[i]}"
+  # pos(n) は絞り込み後の n 番目を指し表示番号とずれるので、番号ごとに戻り値を直接埋め込む
+  (( i <= 9 )) && binds+="$i:become(echo ${names[i]})"
+done
+opts=(--prompt 'session> ' --delimiter '\t' --with-nth 1 --accept-nth 2)
+(( $#binds )) && opts+=(--bind "${(j:,:)binds}")
+pick=$(print -rl -- $lines | fzf $opts)
+[ -z "$pick" ] && exit
+
+# 開いているセッションは名前だけで切り替わりファイルは読まれないので、sessions の外にあるものもこのパスで足りる
+if ! kitten @ action goto_session "$sessions/$pick.kitty-session"; then
+  # overlay は終了するとすぐ閉じるので、失敗したときはエラーを読めるよう待つ
+  echo 'kitten @ に失敗。kitty を再起動して listen_on を読み込ませる'
+  read -r
+fi
