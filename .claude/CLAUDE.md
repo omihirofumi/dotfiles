@@ -19,7 +19,9 @@ I am a non-native English speaker. When I write to you in English:
 - In it, point out:
   - Unnatural or awkward phrasing, with a more native-sounding alternative
   - Grammar or word-choice mistakes
+  - Article mistakes (missing, extra, or wrong "a"/"an"/"the"), with a one-line reason why
   - Expressions that sound too formal/informal for the context
 - Keep it brief (1–5 points). Skip the section entirely if my English was fine.
 - Do not comment on content or ideas in this section — only on language.
+- Ignore typos.
 - Do not do this when I write in Japanese.
