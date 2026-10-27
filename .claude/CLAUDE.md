@@ -7,9 +7,6 @@ Keep the Japanese concise. Emojis are prohibited.
 - "Why" in commit logs
 - "Why not" in code comments (Do not write unnecessary comments, such as those that can be read from the code)
 
-# rule
-rules/
-
 ## English feedback
 
 I am a non-native English speaker. When I write to you in English:
