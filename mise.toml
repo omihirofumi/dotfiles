@@ -159,7 +159,7 @@ if command -v brew >/dev/null 2>&1; then
     tabularis \
     notion \
     zed \
-    dockdoor \
+    alt-tab \
     kotlin-lsp \
     font-jetbrains-mono-nerd-font
 fi
