@@ -90,6 +90,7 @@ pnpm = "latest"
 "~/.claude/rules" = ".claude/rules"
 "~/.claude/skills/deep-codebase-research/SKILL.md" = ".claude/skills/deep-codebase-research/SKILL.md"
 "~/.claude/skills/output-plan-detailed/SKILL.md" = ".claude/skills/output-plan-detailed/SKILL.md"
+"~/.claude/skills/hunk-review" = "~/.local/share/mise/installs/hunk/latest/hunkdiff-darwin-arm64/skills/hunk-review"
 "~/.codex/AGENTS.md" = ".config/codex/AGENTS.md"
 "~/.config/zed/settings.json" = { source = ".config/zed/settings.json", mode = "symlink" }
 "~/.config/zellij/config.kdl" = { source = ".config/zellij/config.kdl" }
