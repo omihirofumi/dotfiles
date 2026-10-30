@@ -30,5 +30,10 @@ pull = ["util", "exec", "--", "sh", "-c", "jj git fetch -b \"$1\" && jj new \"$1
 # https://x.com/mitchellh/status/2051337285418029140?s=20
 tug = ["bookmark", "advance", "--to", "@-"]
 
+[revset-aliases]
+'ro(x)' = 'remote_bookmarks(exact:x, exact:"origin")'
+'pr(x)' = 'fork_point(trunk() | ro(x))..ro(x)'
+'pr(b, x)' = 'fork_point(ro(b) | ro(x))..ro(x)'
+
 [remotes.origin]
 auto-track-created-bookmarks = "*"
