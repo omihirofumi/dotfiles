@@ -1,22 +1,10 @@
 #!/bin/sh
 set -eu
 
-case "${1:-}" in
-  '')
-    pr=$(gh pr list | fzf --preview 'gh pr view {1}' | cut -f1)
-    [ -n "$pr" ] || exit
-    set -- "$pr"
-    ;;
-  @)
-    shift
-    pr=$(jj log --no-graph -r 'heads(::@ & bookmarks() ~ ::trunk())' \
-      -T 'local_bookmarks.map(|b| b.name()).join("\n") ++ "\n"' | fzf -1 -0) || true
-    if [ -z "$pr" ]; then
-      echo "jj-pr: no bookmark found between trunk() and @" >&2
-      exit 1
-    fi
-    set -- "$pr" "$@"
-    ;;
-esac
+if [ $# -eq 0 ]; then
+  pr=$(gh pr list | fzf --preview 'gh pr view {1}' | cut -f1)
+  [ -n "$pr" ] || exit
+  set -- "$pr"
+fi
 
 gh pr diff "$@" | hunk patch -
