@@ -1,9 +1,2 @@
-# Sources
-
-- 回答の最後に「参考」節を付け、一次情報へのリンクを並べる
-  - 目的: ユーザーが自分で一次情報を読みに行き、調べる途中での発見と知識の定着を得るため
-  - 形式: `- [<サイト名>: <ページ名>](<URL>)`
-  - 公式ドキュメント、man、ソースコード、RFC などの一次情報を優先する
-  - URL が分からないものは載せない。注記や言い訳は書かない
-  - ユーザーの質問やテーマに関するものだけを載せる。Claude が作業の都合で使ったツールや手順のリンクは載せない
-- English notes には参考を付けない
+<!-- Rules moved to .config/agents/AGENTS.md, shared by Codex and Claude.
+Keep this placeholder for existing ~/.claude/rules symlinks. -->

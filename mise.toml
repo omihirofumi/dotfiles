@@ -86,12 +86,11 @@ pnpm = "latest"
 "~/.config/jj" = ".config/jj"
 "~/.config/jjui" = ".config/jjui"
 "~/.config/yazi" = ".config/yazi"
-"~/.claude/CLAUDE.md" = ".claude/CLAUDE.md"
-"~/.claude/rules" = ".claude/rules"
+"~/.claude/CLAUDE.md" = ".config/agents/AGENTS.md"
 "~/.claude/skills/deep-codebase-research/SKILL.md" = ".claude/skills/deep-codebase-research/SKILL.md"
 "~/.claude/skills/output-plan-detailed/SKILL.md" = ".claude/skills/output-plan-detailed/SKILL.md"
 "~/.claude/skills/hunk-review" = "~/.local/share/mise/installs/hunk/latest/hunkdiff-darwin-arm64/skills/hunk-review"
-"~/.codex/AGENTS.md" = ".config/codex/AGENTS.md"
+"~/.codex/AGENTS.md" = ".config/agents/AGENTS.md"
 "~/.config/zed/settings.json" = { source = ".config/zed/settings.json", mode = "symlink" }
 "~/.config/zellij/config.kdl" = { source = ".config/zellij/config.kdl" }
 "~/.config/hunk/config.toml" = { source = ".config/hunk/config.toml" }
