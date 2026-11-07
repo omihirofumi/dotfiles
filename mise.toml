@@ -150,6 +150,7 @@ if command -v brew >/dev/null 2>&1; then
     kitty \
     homerow \
     linear-linear \
+    macskk \
     raindropio \
     raycast \
     karabiner-elements \
