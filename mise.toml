@@ -149,6 +149,7 @@ if command -v brew >/dev/null 2>&1; then
     ghostty \
     kitty \
     homerow \
+    input-source-pro \
     linear-linear \
     macskk \
     raindropio \
