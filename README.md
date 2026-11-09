@@ -27,6 +27,17 @@ To inspect the changes first:
 mise bootstrap --dry-run
 ```
 
+## Keyboard remapping
+
+Caps Lock is mapped to Escape using macOS `hidutil`. The mise-managed
+`caps-lock-to-escape` LaunchAgent applies the mapping at login without Karabiner.
+To install or reapply it independently:
+
+```sh
+mise bootstrap macos launchd-agents apply
+launchctl kickstart gui/$(id -u)/dev.mise.caps-lock-to-escape
+```
+
 ## Shared agent rules
 
 Edit `.config/agents/AGENTS.md` to update user-level rules for both Codex and

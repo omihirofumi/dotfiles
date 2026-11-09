@@ -74,7 +74,6 @@ pnpm = "latest"
 "~/.config/negligible.omp.json" = ".config/negligible.omp.json"
 "~/.ideavimrc" = ".ideavimrc"
 "~/.local/bin" = { source = ".local/bin", mode = "symlink-each" }
-"~/.config/karabiner" = ".config/karabiner"
 "~/.config/ghostty" = ".config/ghostty"
 "~/.config/kitty" = ".config/kitty"
 "~/.local/share/kitty-sessions/scratch.kitty-session" = ".config/kitty/scratch.kitty-session"
@@ -91,6 +90,7 @@ pnpm = "latest"
 "~/.claude/skills/deep-codebase-research/SKILL.md" = ".claude/skills/deep-codebase-research/SKILL.md"
 "~/.claude/skills/output-plan-detailed/SKILL.md" = ".claude/skills/output-plan-detailed/SKILL.md"
 "~/.claude/skills/hunk-review" = "~/.local/share/mise/installs/hunk/latest/hunkdiff-darwin-arm64/skills/hunk-review"
+"~/.agents/skills/hunk-review" = "~/.local/share/mise/installs/hunk/latest/hunkdiff-darwin-arm64/skills/hunk-review"
 "~/.codex/AGENTS.md" = ".config/agents/AGENTS.md"
 "~/.config/zed/settings.json" = { source = ".config/zed/settings.json", mode = "symlink" }
 "~/.config/zellij/config.kdl" = { source = ".config/zellij/config.kdl" }
@@ -106,6 +106,11 @@ stdout_path = "~/Library/Logs/colima.log"
 stderr_path = "~/Library/Logs/colima.log"
 # colimaはlimactl/sshを子プロセスとして起動するため、launchdの最小PATHでは起動できない
 environment = { PATH = "/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin" }
+
+[bootstrap.macos.launchd.agents.caps-lock-to-escape]
+program = "/usr/bin/hidutil"
+args = ["property", "--set", '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":30064771129,"HIDKeyboardModifierMappingDst":30064771113}]}']
+run_at_load = true
 
 [bootstrap.macos.dock]
 autohide = true
@@ -154,7 +159,6 @@ if command -v brew >/dev/null 2>&1; then
     macskk \
     raindropio \
     raycast \
-    karabiner-elements \
     google-chrome \
     chatgpt \
     jetbrains-toolbox \

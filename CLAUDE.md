@@ -22,6 +22,6 @@ mise bootstrap --dry-run
 - **`mise.toml`** — Entry point. Declares bootstrap packages, dotfiles, macOS defaults, and bootstrap tasks.
 - **`home/`** — Repo-managed dotfile sources linked by mise:
   - `.zshrc`, `.gitconfig`, `.tmux.conf`, `direnv.toml`
-  - `ghostty/`, `karabiner/`, `helix/`, `jj/`, `jjui/`
+  - `ghostty/`, `helix/`, `jj/`, `jjui/`
   - `claude/`, `codex/`, `.ideavimrc`, `negligible.omp.json`
   - `bin/` helper scripts linked into `~/.local/bin`
