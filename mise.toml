@@ -9,6 +9,7 @@ activate_shims = false
 [tools]
 claude = "latest"
 codex = "latest"
+"github:atusy/kakehashi" = "latest"
 "github:ushironoko/octorus" = "latest"
 go = "latest"
 "go:golang.org/x/tools/cmd/goimports" = "latest"
