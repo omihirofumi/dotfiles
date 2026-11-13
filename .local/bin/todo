@@ -1,0 +1,18 @@
+#!/bin/sh
+set -eu
+
+file="$HOME/journal/todo.md"
+heading="## $(date +%F)"
+mkdir -p "$(dirname "$file")"
+touch "$file"
+
+if [ "$(head -n 1 "$file")" != "$heading" ]; then
+  tmp=$(mktemp "$file.XXXXXX")
+  {
+    printf '%s\n\n\n' "$heading"
+    [ -s "$file" ] && printf '\n' && cat "$file"
+  } >"$tmp"
+  mv "$tmp" "$file"
+fi
+
+exec hx "$file:3"
