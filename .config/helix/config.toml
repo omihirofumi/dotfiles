@@ -60,7 +60,7 @@ snippets = false
 "C-y" = [
   ':sh rm -f /tmp/unique-file',
   ':sh printf "\x1b[<u" > /dev/tty',
-  ':insert-output yazi %sh{f="%{buffer_name}"; [ -e "$f" ] && echo "$f" || echo .} --chooser-file=/tmp/unique-file',
+  ':insert-output yazi "%{file_path_absolute}" --chooser-file=/tmp/unique-file',
   ':sh printf "\x1b[?1049h\x1b[?2004h\x1b[>5u" > /dev/tty',
   ':open %sh{cat /tmp/unique-file}',
   ':redraw',
