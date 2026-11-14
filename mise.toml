@@ -51,7 +51,6 @@ pnpm = "latest"
 "brew:nb" = "latest"
 "brew:difftastic" = "latest"
 "brew:zls" = "latest"
-"brew:zellij" = "latest"
 "brew:git-delta" = "latest"
 "brew:typescript" = "latest"
 "brew:mole" = "latest"
@@ -76,9 +75,6 @@ pnpm = "latest"
 "~/.ideavimrc" = ".ideavimrc"
 "~/.local/bin" = { source = ".local/bin", mode = "symlink-each" }
 "~/.config/ghostty" = ".config/ghostty"
-"~/.config/kitty" = ".config/kitty"
-"~/.local/share/kitty-sessions/scratch.kitty-session" = ".config/kitty/scratch.kitty-session"
-"~/.local/share/kitty-sessions/dotfiles.kitty-session" = ".config/kitty/dotfiles.kitty-session"
 "~/.config/borders" = ".config/borders"
 "~/.config/rex" = ".config/rex"
 "~/.config/helix/config.toml" = ".config/helix/config.toml"
@@ -97,7 +93,6 @@ pnpm = "latest"
 "~/.agents/skills/hunk-review" = "~/.local/share/mise/installs/hunk/latest/hunkdiff-darwin-arm64/skills/hunk-review"
 "~/.codex/AGENTS.md" = ".config/agents/AGENTS.md"
 "~/.config/zed/settings.json" = { source = ".config/zed/settings.json", mode = "symlink" }
-"~/.config/zellij/config.kdl" = { source = ".config/zellij/config.kdl" }
 "~/.config/hunk/config.toml" = { source = ".config/hunk/config.toml" }
 "~/.grok/config.toml" = ".config/grok/config.toml"
 
@@ -156,7 +151,6 @@ if command -v brew >/dev/null 2>&1; then
     ankerwork \
     deskpad \
     ghostty \
-    kitty \
     homerow \
     input-source-pro \
     linear-linear \

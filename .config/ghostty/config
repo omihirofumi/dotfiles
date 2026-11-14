@@ -10,9 +10,6 @@ macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
 macos-option-as-alt = true
 
-# 新しいタブ/ウィンドウでプロジェクトを選び、その zellij セッションに入る
-command = ~/.local/bin/zj-open
-
 # keymaps
 keybind = global:cmd+`=toggle_quick_terminal
 keybind = shift+ctrl+left_bracket=previous_tab
@@ -21,9 +18,7 @@ keybind = shift+ctrl+,=move_tab:-1
 keybind = shift+ctrl+.=move_tab:+1
 keybind = shift+enter=text:\x1b\r
 keybind = cmd+enter=ignore
-# zellij 上で Cmd+C が c として入力されるのを防ぐ
 keybind = super+c=copy_to_clipboard
-# keybind = ctrl+j=ignore
 # 分割ペイン移動
 keybind = cmd+h=goto_split:left
 keybind = cmd+j=goto_split:bottom
