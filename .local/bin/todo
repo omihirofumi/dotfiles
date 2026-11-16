@@ -6,13 +6,9 @@ heading="## $(date +%F)"
 mkdir -p "$(dirname "$file")"
 touch "$file"
 
-if [ "$(head -n 1 "$file")" != "$heading" ]; then
-  tmp=$(mktemp "$file.XXXXXX")
-  {
-    printf '%s\n\n\n' "$heading"
-    [ -s "$file" ] && printf '\n' && cat "$file"
-  } >"$tmp"
-  mv "$tmp" "$file"
+if [ "$(grep '^## ' "$file" | tail -n 1)" != "$heading" ]; then
+  [ -s "$file" ] && printf '\n' >>"$file"
+  printf '%s\n\n' "$heading" >>"$file"
 fi
 
-exec hx "$file:3"
+exec hx "$file:$(($(wc -l <"$file")))"
