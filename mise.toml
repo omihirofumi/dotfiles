@@ -7,6 +7,7 @@ idiomatic_version_file_ignore_minimum_versions = true
 activate_shims = false
 
 [tools]
+agy = "latest"
 claude = "latest"
 codex = "latest"
 "github:atusy/kakehashi" = "latest"
@@ -94,6 +95,8 @@ pnpm = "latest"
 "~/.claude/skills/hunk-review" = "~/.local/share/mise/installs/hunk/latest/hunkdiff-darwin-arm64/skills/hunk-review"
 "~/.agents/skills/hunk-review" = "~/.local/share/mise/installs/hunk/latest/hunkdiff-darwin-arm64/skills/hunk-review"
 "~/.codex/AGENTS.md" = ".config/agents/AGENTS.md"
+"~/.gemini/GEMINI.md" = ".config/agents/AGENTS.md"
+"~/.gemini/config/skills.json" = ".config/gemini/skills.json"
 "~/.config/zed/settings.json" = { source = ".config/zed/settings.json", mode = "symlink" }
 "~/.config/hunk/config.toml" = { source = ".config/hunk/config.toml" }
 "~/.grok/config.toml" = ".config/grok/config.toml"
