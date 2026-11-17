@@ -64,6 +64,7 @@ pnpm = "latest"
 "~/.dotfiles" = { url = "https://github.com/omihirofumi/dotfiles", ref = "main" }
 
 [dotfiles]
+"~/ghq/hobby/github.com/omihirofumi/dotfiles" = { source = "~/.dotfiles", mode = "symlink" }
 "~/.config/mise/config.toml" = "mise.toml"
 "~/.zshenv" = ".zshenv"
 "~/.zshrc" = ".zshrc"
