@@ -5,7 +5,7 @@ prompt_save_view_preferences = true
 # 直接起動して監視したいときは `hunk --watch`
 watch = false
 wrap_lines = true
-mode = "unified"
+mode = "split"
 line_numbers = true
 hunk_headers = true
 menu_bar = true
