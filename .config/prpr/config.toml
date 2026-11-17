@@ -1,0 +1,12 @@
+[ai]
+provider = "claude"
+language = "en"
+auto_explain = false
+timeout_seconds = 180
+max_input_bytes = 160000
+
+[keybindings]
+toggle_sidebar = ["Space b"]
+
+[diff]
+wrap = true
