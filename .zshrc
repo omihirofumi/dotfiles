@@ -185,17 +185,20 @@ function ghq-dup () {
 function fzf-src () {
   local repo
 
-  repo=$(ghq list | awk '
+  repo=$({ printf '%s\n' hobby; ghq list; } | awk '
     /-agent[0-9]+$/ { printf "\033[33m[agent] %s\033[0m\n", $0; next }
                     { print }
   ' | fzf --reverse --ansi --prompt="repo: ")
 
-  # ラベル除去
   repo=$(echo "$repo" | sed 's/\[agent\] //')
 
   if [ -n "$repo" ]; then
-    repo=$(ghq list --full-path --exact "$repo")
-    BUFFER="cd $repo"
+    if [ "$repo" = hobby ]; then
+      repo="$HOME/ghq/hobby"
+    else
+      repo=$(ghq list --full-path --exact "$repo")
+    fi
+    BUFFER="cd ${(q)repo}"
     zle accept-line
   fi
   zle clear-screen
