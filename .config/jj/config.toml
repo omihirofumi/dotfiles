@@ -8,17 +8,30 @@ name = "omihirofumi"
 merge-editor = ":builtin"
 default-command = "log"
 # paginate と pager は既定のまま (auto / less -FRXK)。
-# hunk はフルスクリーン TUI で、less -F のように「画面に収まれば素通し」ができず終了時に出力も消えるため、
-# diff 系コマンドだけ scope で hunk に差し替える
-# hunk は git 形式の diff を解析して描画するため、diff-formatter も :git に合わせる。
+# フルスクリーン TUI は less -F のように「画面に収まれば素通し」ができず終了時に出力も消えるため、
+# diff 系コマンドだけ下の scope で prpr に差し替える
+# それ以外 (log -p など) は git 形式のまま。hunk pager も git 形式の diff を解析して描画する。
 # difftastic で見たいときは `jj diff --tool difft`
 diff-formatter = ":git"
+
+# hunk を使うときはこのブロックを戻し、下の prpr のブロックをコメントアウトする
+# [[--scope]]
+# --when.commands = ["diff", "show", "interdiff"]
+# [--scope.ui]
+# # jj の diff のパスはワークスペースルート基準なので、サブディレクトリから起動しても hunk の e でファイルを開けるようルートへ移動してから起動する
+# pager = ["sh", "-c", "cd \"$(jj root --ignore-working-copy 2>/dev/null || pwd)\" && exec hunk pager"]
 
 [[--scope]]
 --when.commands = ["diff", "show", "interdiff"]
 [--scope.ui]
-# jj の diff のパスはワークスペースルート基準なので、サブディレクトリから起動しても hunk の e でファイルを開けるようルートへ移動してから起動する
-pager = ["sh", "-c", "cd \"$(jj root --ignore-working-copy 2>/dev/null || pwd)\" && exec hunk pager"]
+# prpr は端末があれば TUI を開き、端末がないエージェントやスクリプトには git 形式の diff を出す
+diff-formatter = "prpr"
+# prpr を閉じたあとに less が開かないようにする
+paginate = "never"
+
+[merge-tools.prpr]
+program = "prpr"
+diff-args = ["difftool", "$left", "$right"]
 
 [colors]
 change_id = "#ff1525"
