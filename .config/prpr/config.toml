@@ -10,3 +10,8 @@ toggle_sidebar = ["Space b"]
 
 [diff]
 wrap = true
+
+[[editor.rules]]
+extensions = ["java", "kt", "kts"]
+command = ["idea", "--line", "{line}", "{file}"]
+background = true
