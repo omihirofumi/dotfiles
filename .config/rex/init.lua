@@ -49,6 +49,9 @@ rex.bind("ctrl+b>shift+n", "session.new")
 
 rex.bind("ctrl+b>ctrl+b", "pane.send_key", { key = "ctrl+b" })
 
+require("tab_switcher")
+rex.bind("cmd+p", "switch_tab")
+
 package.path = os.getenv("HOME") .. "/ghq/hobby/github.com/omihirofumi/rex-work/?.lua;" .. package.path
 local ok, err = pcall(require, "work")
 if not ok then rex.log("warn", err) end
