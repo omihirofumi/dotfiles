@@ -150,7 +150,6 @@ if command -v brew >/dev/null 2>&1; then
   brew install k1LoW/tap/mo
   brew install FelixKratz/formulae/borders
   brew services start borders
-  brew install --HEAD helix
 
   brew install --cask --force \
     1password \
