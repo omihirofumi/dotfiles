@@ -43,8 +43,8 @@ launchctl kickstart gui/$(id -u)/dev.mise.caps-lock-to-escape
 Edit `.config/agents/AGENTS.md` to update user-level rules for Codex, Claude,
 and Antigravity (`agy`). Bootstrap links `~/.codex/AGENTS.md`,
 `~/.claude/CLAUDE.md`, and `~/.gemini/GEMINI.md` to this same file, and links
-`~/.gemini/config/skills.json` so Antigravity picks up shared skills under
-`~/.agents/skills`. Repository-level `AGENTS.md` and `CLAUDE.md` remain
+`~/.gemini/config/skills` to `~/.agents/skills` so Antigravity picks up shared
+skills directly. Repository-level `AGENTS.md` and `CLAUDE.md` remain
 separate.
 
 The old source paths remain as compatibility symlinks, so existing home
