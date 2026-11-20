@@ -71,6 +71,11 @@ bindkey '\e[109;5u' accept-line
 # emacs keybinds
 bindkey -e
 
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
+bindkey '^X^F' fzf-file-widget
+
 ######## zinit ########
 if [ -f "${HOMEBREW_PREFIX:-/opt/homebrew}/opt/zinit/zinit.zsh" ]; then
   source "${HOMEBREW_PREFIX:-/opt/homebrew}/opt/zinit/zinit.zsh"
