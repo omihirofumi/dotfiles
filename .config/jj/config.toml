@@ -48,7 +48,5 @@ pr = ["util", "exec", "--", "jj-pr"]
 [remotes.origin]
 auto-track-created-bookmarks = "*"
 
-[[--scope]]
---when.repositories = ["~/.dotfiles"]
-[--scope.revsets]
+[revsets]
 log = "@ | ancestors(trunk(), 12)"
